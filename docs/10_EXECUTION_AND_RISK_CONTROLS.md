@@ -272,3 +272,16 @@ Important safety behavior:
 - Funding, withdrawal, and transfer terms are rejected from command reason text.
 
 This slice does not add private execution endpoint calls and does not require trading permissions.
+
+## Slice 15E — Manual Execution Command Builder
+
+The manual execution command builder connects the safe simulation and audit layers with the command model.
+
+The builder:
+- Creates a simulation package.
+- Writes a local JSONL audit record.
+- Creates a manual command candidate linked to the simulation package and audit record.
+- Produces a safe-to-log report.
+- Remains non-executable by design.
+
+This slice does not introduce live exchange execution.

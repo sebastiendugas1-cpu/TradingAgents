@@ -592,3 +592,25 @@ Validation:
 - Confirms invalid command fields are rejected.
 - Confirms sensitive-looking metadata is redacted.
 - Confirms no private execution endpoint call was introduced.
+
+## Slice 15E — Manual Execution Command Builder
+
+Status: Implemented pending validation.
+
+Goal:
+Connect the simulation package, audit log, and manual execution command model into one safe builder.
+
+Scope:
+- Build a simulation-only package.
+- Write/read a safe local audit record.
+- Build a non-executable manual execution command linked to package ID and audit ID.
+- Produce a safe-to-log build report.
+- Keep commands blocked from live execution.
+
+Still forbidden:
+- No Kraken live order submission.
+- No Kraken live order cancellation.
+- No live trading.
+- No funding.
+- No withdrawals.
+- No trading permission requirement.

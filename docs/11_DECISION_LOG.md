@@ -459,3 +459,14 @@ Safety outcome:
 - The command model cannot cancel orders.
 - The command model does not call private execution endpoints.
 - The command model does not require trading, funding, or withdrawal permissions.
+
+## Slice 15E Decision — Command Builder Must Remain Non-Executable
+
+Decision:
+The manual execution command builder may connect simulation, audit, and command records, but it must not execute anything.
+
+Reason:
+Before live execution can exist, the system needs a complete auditable command candidate flow.
+
+Result:
+Slice 15E produces safe command candidates only. Commands remain blocked from live execution.
