@@ -492,3 +492,14 @@ After adding the manual execution review CLI, the project needs a simple known-g
 
 Result:
 The project can now run a one-command sample that creates a safe blocked review summary and writes a local audit record.
+
+## Slice 15H Decision — Document Manual Review CLI Usage
+
+Decision:
+Add a usage guide for the manual execution review CLI and sample runner.
+
+Reason:
+The project now has a working safe review pipeline. It needs clear commands and interpretation rules before more execution-adjacent slices are added.
+
+Result:
+The user can run the manual review tools safely from PowerShell and understand that the output remains blocked and non-executable.

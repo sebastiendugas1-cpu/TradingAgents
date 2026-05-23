@@ -656,3 +656,26 @@ Safety:
 - No order placement.
 - No order cancellation.
 - No private account-changing permissions required.
+
+## Slice 15H — Manual Execution Review CLI Usage Guide
+
+Status: Implemented pending validation.
+
+Goal:
+Document how to safely use the manual execution review CLI and sample runner.
+
+Scope:
+- Create docs/15_MANUAL_EXECUTION_REVIEW_CLI_USAGE.md.
+- Create scripts/test_manual_execution_review_cli_usage_guide.py.
+- Document sample runner commands.
+- Document custom review commands.
+- Document audit log location.
+- Document blocked / non-executable output interpretation.
+
+Safety:
+- Documentation and validation only.
+- No private execution endpoint call.
+- No live trading.
+- No order placement.
+- No order cancellation.
+- No private account-changing permissions required.

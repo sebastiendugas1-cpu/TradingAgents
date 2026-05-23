@@ -310,3 +310,16 @@ The sample runner:
 - Confirms execution is not allowed.
 
 The sample runner remains non-executable and does not call private execution endpoints.
+
+## Slice 15H — Manual Execution Review CLI Usage Guide
+
+The manual execution review CLI now has a usage guide.
+
+The guide documents:
+- how to run the fixed sample
+- how to run a custom review
+- how to read blocked / non-executable output
+- where local audit logs are written
+- what remains forbidden before future live execution work
+
+This slice is documentation and validation only.
