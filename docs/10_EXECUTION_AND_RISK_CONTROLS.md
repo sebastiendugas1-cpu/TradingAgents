@@ -285,3 +285,16 @@ The builder:
 - Remains non-executable by design.
 
 This slice does not introduce live exchange execution.
+
+## Slice 15F — Manual Execution Command Review CLI
+
+Slice 15F introduces a local CLI review tool for manual execution command candidates.
+
+The CLI:
+- Builds the existing simulation package.
+- Writes the local audit record.
+- Builds the manual execution command candidate.
+- Prints a safe review summary.
+- Clearly reports that the command is blocked and non-executable.
+
+This slice does not add private execution endpoint calls or live trading actions.

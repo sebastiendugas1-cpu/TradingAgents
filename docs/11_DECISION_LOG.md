@@ -470,3 +470,14 @@ Before live execution can exist, the system needs a complete auditable command c
 
 Result:
 Slice 15E produces safe command candidates only. Commands remain blocked from live execution.
+
+## Slice 15F Decision — Review CLI Before Any Execution Adapter
+
+Decision:
+Before any future execution adapter is considered, add a local manual command review CLI.
+
+Reason:
+The project now has a simulation package, audit log, command model, and command builder. A local CLI makes this pipeline practical to test from PowerShell while keeping the output non-executable.
+
+Result:
+Manual execution command candidates can be reviewed locally, written to audit logs, and inspected as safe summaries without enabling live execution.

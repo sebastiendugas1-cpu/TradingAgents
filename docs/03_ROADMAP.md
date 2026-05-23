@@ -614,3 +614,24 @@ Still forbidden:
 - No funding.
 - No withdrawals.
 - No trading permission requirement.
+
+## Slice 15F — Manual Execution Command Review CLI
+
+Status: Implemented pending validation.
+
+Goal:
+Add a local command-line review tool that builds a non-executable manual execution command candidate from terminal arguments.
+
+Scope:
+- Accept pair, side, order type, volume, limit price, and audit file path.
+- Build the simulation/audit/command-builder workflow.
+- Print a safe human-readable or JSON review summary.
+- Keep the result blocked and non-executable.
+- No private execution endpoint call.
+- No live trading action.
+- No private account-changing permission requirement.
+
+Files introduced:
+- `tradingagents/execution/manual_execution_review_cli.py`
+- `scripts/test_manual_execution_review_cli.py`
+- `scripts/create_slice_15f_manual_execution_review_cli.ps1`
