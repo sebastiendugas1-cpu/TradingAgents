@@ -767,3 +767,24 @@ Safety:
 - No order placement.
 - No order cancellation.
 - No private account-changing permissions required.
+
+## Slice 17C — Add Adapter Tests to Master Safety Regression Suite
+
+Status: Implemented pending validation.
+
+Goal:
+Protect the new execution adapter interface and adapter-command integration with the master safety regression suite.
+
+Scope:
+- Update scripts/run_execution_safety_regression_suite.py.
+- Add scripts/test_execution_adapter_interface.py.
+- Add scripts/test_execution_adapter_command_integration.py.
+- Update scripts/test_execution_safety_regression_suite_runner.py.
+- Validate that the master safety suite includes adapter tests.
+
+Safety:
+- No private execution endpoint call.
+- No live trading.
+- No order placement.
+- No order cancellation.
+- No private account-changing permissions required.

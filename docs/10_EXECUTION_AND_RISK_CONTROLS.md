@@ -383,3 +383,11 @@ This integration proves:
 - the full report is safe to log
 
 This slice does not add any real exchange execution call.
+
+## Slice 17C — Adapter Tests Added to Safety Regression Suite
+
+The master execution safety regression suite now includes:
+- execution adapter interface validation
+- execution adapter command integration validation
+
+This ensures future safety-suite runs protect the adapter boundary and mock adapter integration.

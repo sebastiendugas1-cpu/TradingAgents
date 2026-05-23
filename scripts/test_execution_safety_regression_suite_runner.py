@@ -1,4 +1,4 @@
-"""
+﻿"""
 Validation script for Slice 16B.
 
 This validates the full execution safety regression suite runner.
@@ -46,7 +46,7 @@ def test_runner_file_exists() -> None:
 
 
 def test_default_safety_tests_exist() -> None:
-    assert len(DEFAULT_SAFETY_TESTS) >= 10
+    assert len(DEFAULT_SAFETY_TESTS) >= 15
 
     for script in DEFAULT_SAFETY_TESTS:
         assert Path(script).exists(), f"Missing regression test script: {script}"
@@ -138,4 +138,5 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
 

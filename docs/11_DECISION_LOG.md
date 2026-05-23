@@ -547,3 +547,14 @@ After adding the adapter interface, the next safe step is to prove the existing 
 
 Result:
 The project can route a command candidate to a mock adapter and receive a blocked safe result.
+
+## Slice 17C Decision — Protect Adapter Boundary in Master Regression Suite
+
+Decision:
+Add the execution adapter tests to the master safety regression suite.
+
+Reason:
+Slices 17A and 17B added execution-adjacent adapter architecture. The master suite must protect these files before future live-adjacent work continues.
+
+Result:
+The project now verifies adapter interface and adapter-command integration during full safety regression.

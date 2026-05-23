@@ -1,4 +1,4 @@
-"""
+﻿"""
 Slice 16B full execution safety regression suite runner.
 
 This script runs the key safety validation scripts for recent execution slices.
@@ -37,6 +37,8 @@ DEFAULT_SAFETY_TESTS = (
     "scripts/test_manual_execution_review_sample.py",
     "scripts/test_manual_execution_review_cli_usage_guide.py",
     "scripts/test_manual_execution_pipeline_regression.py",
+    "scripts/test_execution_adapter_interface.py",
+    "scripts/test_execution_adapter_command_integration.py",
 )
 
 
@@ -226,4 +228,5 @@ def run_cli(argv: list[str] | None = None) -> int:
 
 if __name__ == "__main__":
     raise SystemExit(run_cli())
+
 
