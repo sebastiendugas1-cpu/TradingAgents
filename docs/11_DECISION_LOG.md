@@ -57,3 +57,34 @@ Initial normalized formats:
 Safety:
 
 This slice adds no trading capability and no external API calls.
+
+## 2026-05-22 — Slice 4 — Kraken Public Market Data Adapter
+
+Decision:
+
+Add a public-data-only Kraken adapter.
+
+Scope:
+
+- Public REST endpoints only.
+- No Kraken API key.
+- No private account data.
+- No balances.
+- No order placement.
+- No order cancellation.
+- No live execution.
+
+Initial functions:
+
+- `get_server_time()`
+- `get_asset_pairs()`
+- `resolve_pair(symbol)`
+- `get_ticker(symbol)`
+- `get_ohlcv(symbol, interval_minutes=60)`
+
+Validation:
+
+- Resolve BTC/USD and ETH/USD.
+- Fetch BTC/USD ticker.
+- Fetch BTC/USD OHLCV candles.
+- Reject traditional symbols such as AAPL in the Kraken crypto adapter.
