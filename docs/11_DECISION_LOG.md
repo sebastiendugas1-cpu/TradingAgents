@@ -227,3 +227,13 @@ Safety rules:
 - No order cancellation.
 - No withdrawals.
 - No funding operations.
+
+## 2026-05-22 — Slice 12C-1 Kraken Read-Only Environment Validator
+
+Decision:
+
+Before calling real Kraken private endpoints, the project will validate local read-only configuration.
+
+This validator must not call Kraken and must not expose API key or secret values.
+
+The validator blocks unsafe flags such as trading, withdrawals, and funding.

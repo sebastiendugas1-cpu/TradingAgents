@@ -200,3 +200,30 @@ Validation:
 - Mock trade history can be read.
 - Combined snapshot can be generated.
 - `place_order`, `cancel_order`, `withdraw`, and funding actions are blocked.
+
+## Slice 12C-1 — Kraken Read-Only Key Setup Guide and Environment Validator
+
+Goal:
+
+Validate local Kraken read-only credential configuration without calling Kraken private APIs.
+
+Safety:
+
+- No private Kraken requests.
+- No balance access.
+- No order access.
+- No trading.
+- No withdrawals.
+- No secrets displayed in output.
+
+Validation command:
+
+```powershell
+D:; cd D:\Trading\TradingAgents; conda activate tradingagents; python scripts/test_kraken_readonly_env_validator.py
+```
+
+Commit message:
+
+```text
+Add Kraken read-only environment validator
+```

@@ -137,3 +137,20 @@ It also proves that dangerous operations are blocked:
 - Funding operations.
 
 No real Kraken keys are required for Slice 12B.
+
+## Slice 12C-1 — Read-Only Environment Validator
+
+Before using a real Kraken private API key, the project must validate local configuration.
+
+The validator must confirm:
+
+- `KRAKEN_API_KEY` is present.
+- `KRAKEN_API_SECRET` is present.
+- `KRAKEN_TRADING_ENABLED` is not true.
+- `KRAKEN_WITHDRAWALS_ENABLED` is not true.
+- `KRAKEN_FUNDING_ENABLED` is not true.
+- Dangerous permission words such as trade, withdraw, margin, leverage, futures, or funding are not present in local permission fields.
+
+This slice does not call Kraken.
+
+It only confirms that the local environment is ready for a future read-only private client test.
