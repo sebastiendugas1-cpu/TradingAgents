@@ -565,3 +565,16 @@ The master execution safety regression suite now includes:
 - disabled Kraken private transport shell validation
 
 This ensures future safety-suite runs protect the transport boundary and confirm no network/private endpoint behavior has been introduced.
+
+## Slice 20C — Private Client Shell to Transport Shell Integration
+
+A disabled integration has been added between:
+- Kraken private client shell
+- Kraken private transport shell
+
+The integration:
+- routes preview payloads only
+- returns blocked safe reports
+- confirms no request is signed
+- confirms no request is sent
+- confirms no network/private endpoint call is made

@@ -745,3 +745,14 @@ Slice 20A created the private transport boundary. That boundary must be protecte
 
 Result:
 The project now verifies the disabled private transport shell during full safety regression.
+
+## Slice 20C Decision — Connect Disabled Private Client Boundary to Disabled Transport Boundary
+
+Decision:
+Add a disabled integration between the private client shell and private transport shell.
+
+Reason:
+Before future signing or transport work, the system needs a tested boundary proving the private client can route to transport while remaining blocked and non-executable.
+
+Result:
+The project now has a tested client-to-transport integration with no network calls, no private endpoint calls, and no live trading.

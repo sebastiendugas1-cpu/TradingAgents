@@ -1152,3 +1152,26 @@ Safety:
 - No order placement.
 - No order cancellation.
 - No private account-changing permissions required.
+
+## Slice 20C — Private Client Shell to Transport Shell Integration
+
+Status: Implemented pending validation.
+
+Goal:
+Connect the disabled Kraken private client shell boundary to the disabled Kraken private transport shell boundary.
+
+Scope:
+- Create 	radingagents/execution/kraken_private_client_transport_integration.py.
+- Create scripts/test_kraken_private_client_transport_integration.py.
+- Route a safe payload preview through the disabled transport shell.
+- Preserve blocked, non-executable behavior.
+- Validate that no network or private endpoint call exists.
+
+Safety:
+- No network call.
+- No request signing.
+- No private execution endpoint call.
+- No live trading.
+- No order placement.
+- No order cancellation.
+- No private account-changing permissions required.
