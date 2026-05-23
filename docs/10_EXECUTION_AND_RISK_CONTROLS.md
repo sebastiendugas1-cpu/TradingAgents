@@ -371,3 +371,15 @@ The interface defines:
 - mock adapter
 
 The mock adapter remains blocked and simulation-only. This slice does not add any real exchange execution call.
+
+## Slice 17B — Execution Adapter + Command Builder Integration
+
+The manual execution command builder is now connected to the execution adapter interface through the mock adapter only.
+
+This integration proves:
+- the command builder can produce a command candidate
+- the adapter request model can wrap that command
+- the mock adapter returns a blocked/non-live result
+- the full report is safe to log
+
+This slice does not add any real exchange execution call.

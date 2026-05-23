@@ -536,3 +536,14 @@ The manual review and audit pipeline now exists. The next safe architectural ste
 
 Result:
 The project has a tested mock adapter and interface without introducing live execution.
+
+## Slice 17B Decision — Connect Command Builder to Mock Adapter
+
+Decision:
+Connect the manual execution command builder to the execution adapter interface using only the mock adapter.
+
+Reason:
+After adding the adapter interface, the next safe step is to prove the existing command pipeline can use that boundary without enabling live execution.
+
+Result:
+The project can route a command candidate to a mock adapter and receive a blocked safe result.

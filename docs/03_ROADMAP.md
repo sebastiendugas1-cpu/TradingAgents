@@ -745,3 +745,25 @@ Safety:
 - No order placement.
 - No order cancellation.
 - No private account-changing permissions required.
+
+## Slice 17B — Execution Adapter Integration with Manual Command Builder
+
+Status: Implemented pending validation.
+
+Goal:
+Connect the manual execution command builder to the execution adapter interface using the mock adapter only.
+
+Scope:
+- Create 	radingagents/execution/execution_adapter_command_integration.py.
+- Create scripts/test_execution_adapter_command_integration.py.
+- Build a manual command from order intent.
+- Build a submit request for the mock adapter.
+- Route the request through MockExecutionAdapter.
+- Produce a safe blocked integration report.
+
+Safety:
+- No private execution endpoint call.
+- No live trading.
+- No order placement.
+- No order cancellation.
+- No private account-changing permissions required.
