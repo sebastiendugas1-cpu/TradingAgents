@@ -558,3 +558,10 @@ The shell:
 - blocks private request previews
 - requires activation policy evaluation
 - reports no network or private endpoint calls
+
+## Slice 20B — Disabled Private Transport Shell Test Added to Safety Regression Suite
+
+The master execution safety regression suite now includes:
+- disabled Kraken private transport shell validation
+
+This ensures future safety-suite runs protect the transport boundary and confirm no network/private endpoint behavior has been introduced.

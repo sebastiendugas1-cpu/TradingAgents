@@ -734,3 +734,14 @@ The system needs a safe transport boundary before any code that could sign or se
 
 Result:
 The project now has a tested disabled private transport shell with blocked preview methods and no network calls.
+
+## Slice 20B Decision — Protect Disabled Private Transport Shell in Master Regression Suite
+
+Decision:
+Add the disabled Kraken private transport shell test to the master safety regression suite.
+
+Reason:
+Slice 20A created the private transport boundary. That boundary must be protected before future transport, signing, or private request work continues.
+
+Result:
+The project now verifies the disabled private transport shell during full safety regression.
