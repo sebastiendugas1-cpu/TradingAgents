@@ -118,3 +118,19 @@ Rules:
 - Alerts must never include API keys or credentials.
 - TradingView alerts must not place Kraken orders in early slices.
 - Paper trading and manual-confirmation mode must exist before any TradingView signal can contribute to live trading.
+
+## 2026-05-22 — Slice 7 TradingView Webhook Receiver
+
+Decision:
+
+Add a logging-only TradingView webhook receiver.
+
+Rules:
+
+- Webhook payloads must include a shared secret.
+- Payloads must be validated before logging.
+- Signals are normalized using the Slice 3 asset normalizer.
+- Signal logs are local only and ignored by Git.
+- No Kraken private API is used.
+- No orders are placed.
+- No live trading is allowed in this slice.

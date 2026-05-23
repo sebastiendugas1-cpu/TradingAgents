@@ -215,3 +215,42 @@ It must not call Kraken order endpoints.
 It must not place simulated orders until the paper-trading slice exists.
 
 It must not place live orders until the restricted live trading phase is explicitly approved.
+
+## Slice 7 Implementation Notes
+
+The first webhook receiver is logging-only.
+
+Local endpoint:
+
+```text
+POST http://127.0.0.1:8765/tradingview
+```
+
+Local signal log:
+
+```text
+.signals/tradingview_signals.jsonl
+```
+
+Required payload fields:
+
+- `source`
+- `symbol`
+- `signal`
+- `secret`
+
+Optional payload fields:
+
+- `timeframe`
+- `strategy`
+- `confidence`
+
+Allowed signals:
+
+- `long`
+- `short`
+- `exit`
+- `watch`
+- `neutral`
+
+This slice does not place trades.
