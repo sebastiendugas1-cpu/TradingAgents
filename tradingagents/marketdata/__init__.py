@@ -1,15 +1,13 @@
-﻿"""Market data adapters for the TradingAgents multi-asset project."""
+"""Market data adapters and cache utilities."""
 
-from .kraken_public import (
-    KrakenOhlcCandle,
-    KrakenPublicClient,
-    KrakenPublicError,
-    KrakenTicker,
-)
+from tradingagents.marketdata.cache import CacheRecord, MarketDataCache, MarketDataCacheError
+from tradingagents.marketdata.kraken_public import KrakenPublicClient, KrakenPublicError
 
 __all__ = [
-    "KrakenOhlcCandle",
+    "CacheRecord",
+    "MarketDataCache",
+    "MarketDataCacheError",
     "KrakenPublicClient",
     "KrakenPublicError",
-    "KrakenTicker",
 ]
+

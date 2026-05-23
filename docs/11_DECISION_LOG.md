@@ -88,3 +88,17 @@ Validation:
 - Fetch BTC/USD ticker.
 - Fetch BTC/USD OHLCV candles.
 - Reject traditional symbols such as AAPL in the Kraken crypto adapter.
+
+## 2026-05-22 — Slice 5 — Local Market Data Cache
+
+Decision:
+
+Add a local JSON-file market data cache for public market data snapshots.
+
+Key points:
+
+- Cache is local only and ignored by Git under `.data-cache/`.
+- Cache supports ticker and OHLCV-style payloads.
+- Cache has stale-data detection.
+- Cache can be cleared manually.
+- No private API data, balances, orders, or execution are included.

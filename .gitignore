@@ -231,3 +231,6 @@ terminal-output-*.txt
 
 # Local generated TradingAgents reports
 reports/
+
+# Local market data cache
+.data-cache/
