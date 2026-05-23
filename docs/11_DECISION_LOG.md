@@ -351,3 +351,21 @@ Result:
 Future live execution must be explicitly enabled, must pass a kill-switch check, must have a positive max trade value, and must include explicit confirmation.
 
 This slice intentionally does not introduce Kraken AddOrder, Kraken CancelOrder, funding, withdrawal, or automatic live order functionality.
+
+## Slice 14B Decision — Create Live Execution Shape Without Enabling Live Execution
+
+Decision:
+Create the Kraken live execution client skeleton before adding any real live execution behavior.
+
+Reason:
+The project now has manual approval, risk gates, dry-run previews, and a global execution safety config. The next safe architectural step is to define where future live execution will live while proving that all paths remain blocked by default.
+
+Chosen approach:
+- Create typed request models for future submit and cancel paths.
+- Require the Slice 14A safety gate before any future executable behavior.
+- Keep the methods intentionally not implemented after the safety gate.
+- Validate that the private client is never called.
+- Validate that the source contains no Kraken live execution endpoint names.
+
+Result:
+The project gains the live execution client structure without enabling live trading.

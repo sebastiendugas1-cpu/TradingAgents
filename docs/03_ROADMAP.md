@@ -369,3 +369,38 @@ Validation:
 - Rejects dangerous permission terms.
 - Rejects dangerous executable action terms.
 - Confirms safe reports do not expose secrets.
+
+## Slice 14B — Disabled-by-Default Kraken Live Execution Client Skeleton
+
+Status: Implemented pending validation.
+
+Goal:
+Create a disabled-by-default Kraken live execution client skeleton that is fully blocked by the Slice 14A safety config.
+
+Scope:
+- Create structured request models for future submit and cancel paths.
+- Require `LiveExecutionSafetyConfig.assert_live_execution_allowed(...)` before any future executable action.
+- Keep the client intentionally not implemented after the safety gate.
+- Prove that default configuration blocks submit and cancel paths.
+- Prove that no private Kraken execution endpoint call exists in this slice.
+
+Files introduced:
+- `tradingagents/execution/kraken_live_execution_client.py`
+- `scripts/test_kraken_live_execution_client_skeleton.py`
+- `scripts/create_slice_14b_kraken_live_execution_client_skeleton.ps1`
+
+Still forbidden:
+- No successful Kraken live order submission.
+- No successful Kraken live order cancellation.
+- No automatic live trading.
+- No funding.
+- No withdrawals.
+- No trading API permission requirement.
+
+Validation:
+- Default safety config blocks submit and cancel paths.
+- Kill switch blocks submit and cancel paths even when other settings look live-like.
+- Even permissive test settings do not execute because live execution is intentionally not implemented.
+- Private client test double is never called.
+- Safe report excludes secrets.
+- Client source contains no Kraken live execution endpoint names.

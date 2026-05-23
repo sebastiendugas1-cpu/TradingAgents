@@ -111,3 +111,24 @@ Current restrictions:
 - No trading permission is required for this slice.
 
 The safety config provides a safe report that excludes secrets and raw credential values.
+
+## Slice 14B — Disabled-by-Default Kraken Live Execution Client Skeleton
+
+A disabled-by-default Kraken live execution client skeleton has been introduced.
+
+The client is implemented in:
+
+`tradingagents/execution/kraken_live_execution_client.py`
+
+Safety requirements:
+- All future executable paths must pass through `LiveExecutionSafetyConfig.assert_live_execution_allowed(...)`.
+- Default config blocks all submit/cancel paths.
+- Kill switch blocks all submit/cancel paths.
+- Even if a permissive test config is supplied, Slice 14B raises a not-implemented error instead of calling any private client.
+
+Current restrictions:
+- No real Kraken live execution endpoint call exists.
+- No live order submission is implemented.
+- No live cancellation is implemented.
+- No withdrawal or funding behavior exists.
+- No trading permission is required for validation.
