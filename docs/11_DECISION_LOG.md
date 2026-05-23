@@ -134,3 +134,16 @@ Rules:
 - No Kraken private API is used.
 - No orders are placed.
 - No live trading is allowed in this slice.
+
+## 2026-05-22 — Slice 8 Agent Decision Architecture
+
+Decision:
+
+Added a safe structured decision layer where agents produce analysis and recommendations only.
+
+Key points:
+
+- Agent outputs are structured as opinions, risk assessments, and recommendations.
+- Allowed recommendation statuses are WATCH, PAPER_TRADE, MANUAL_REVIEW, and BLOCKED.
+- There is intentionally no LIVE_TRADE status in this layer.
+- This layer does not place orders or call Kraken private APIs.

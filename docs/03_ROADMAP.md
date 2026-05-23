@@ -118,6 +118,8 @@ No trading.
 
 ## Slice 8 — Modular Agent Decision Architecture
 
+Status: Complete.
+
 Goal:
 
 Define structured outputs from specialized agents.
@@ -163,4 +165,5 @@ Enable limited real order execution with strict risk controls.
 Goal:
 
 Use historical and paper-trading results to improve strategies.
+
 
