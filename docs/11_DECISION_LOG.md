@@ -429,3 +429,16 @@ A trading system must be able to explain what was proposed, what was approved, w
 
 Result:
 Slice 15B adds a safe audit record model and JSONL writer. It remains execution-free and does not introduce private execution endpoint calls, funding, withdrawals, or trading permission requirements.
+
+## Slice 15C Decision — Simulated Execution Must Be Auditable Before Live Execution
+
+Decision:
+Before any future live execution path is added, the project must prove that simulated manual execution packages can be converted into durable audit records.
+
+Reason:
+A future live order path must have an audit trail before it can be considered safe. The audit system needs to capture the decision package, readiness state, risk state, manual approval state, dry-run preview state, and final blocked/ready status.
+
+Result:
+Slice 15C integrates the manual live order simulation package with the execution audit log while still blocking all live execution behavior.
+
+This slice intentionally does not add private execution endpoint calls, funding behavior, withdrawal behavior, or automatic live order functionality.

@@ -222,3 +222,21 @@ Default local audit output path:
 `.chatGPT-output/execution_audit/execution_audit.jsonl`
 
 This path is intended for local ignored output, not committed project state.
+
+## Slice 15C — Simulated Execution Package Audit Integration
+
+Slice 15C connects the simulation package to local audit logging.
+
+The integration performs this safe flow:
+
+`manual order simulation package -> execution audit record -> local JSONL audit file -> read-back validation`
+
+Current restrictions:
+- No live order placement.
+- No live order cancellation.
+- No private execution endpoint calls.
+- No funding behavior.
+- No withdrawal behavior.
+- No trading API permission requirement.
+
+Audit records are local-only and written to ignored output locations unless a test supplies a temporary path.

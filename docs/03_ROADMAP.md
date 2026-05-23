@@ -526,3 +526,32 @@ Validation:
 - Confirms secret-like metadata is redacted.
 - Confirms unsafe or malformed records are rejected.
 - Confirms no private execution endpoint names are introduced.
+
+## Slice 15C — Simulated Execution Package Audit Integration
+
+Status: Implemented pending validation.
+
+Goal:
+Connect the Slice 15A manual live order simulation package to the Slice 15B execution audit log.
+
+Scope:
+- Builds a manual live order simulation package.
+- Converts the package into a safe execution audit record.
+- Writes the record to a local JSONL audit file.
+- Reads the record back for validation.
+- Redacts restricted account-permission terms from audit reasons.
+- Does not place or cancel live orders.
+- Does not call private execution endpoints.
+- Does not require trading, funding, or withdrawal permissions.
+
+Files introduced:
+- `tradingagents/execution/simulated_execution_audit_integration.py`
+- `scripts/test_simulated_execution_audit_integration.py`
+
+Validation:
+- Confirms default simulation package is written to audit log.
+- Confirms permissive config still audits simulation-only behavior.
+- Confirms dangerous environment terms are redacted in audit reasons.
+- Confirms invalid order input cannot become a valid audit record.
+- Confirms no secrets are printed.
+- Confirms no private execution endpoint names are introduced.
