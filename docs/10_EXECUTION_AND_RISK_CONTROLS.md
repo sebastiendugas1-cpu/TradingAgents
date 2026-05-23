@@ -298,3 +298,15 @@ The CLI:
 - Clearly reports that the command is blocked and non-executable.
 
 This slice does not add private execution endpoint calls or live trading actions.
+
+## Slice 15G — Manual Execution Review Sample Runner
+
+A sample runner has been added for the manual execution review pipeline.
+
+The sample runner:
+- Builds a known-safe BTC/CAD review sample.
+- Writes a local JSONL audit record.
+- Prints a blocked and non-executable review summary.
+- Confirms execution is not allowed.
+
+The sample runner remains non-executable and does not call private execution endpoints.

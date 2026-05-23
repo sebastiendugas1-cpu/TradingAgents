@@ -635,3 +635,24 @@ Files introduced:
 - `tradingagents/execution/manual_execution_review_cli.py`
 - `scripts/test_manual_execution_review_cli.py`
 - `scripts/create_slice_15f_manual_execution_review_cli.ps1`
+
+## Slice 15G — Manual Execution Review CLI Sample Runner
+
+Status: Implemented pending validation.
+
+Goal:
+Add a simple sample runner for the manual execution review pipeline.
+
+Scope:
+- Create scripts/run_manual_execution_review_sample.py.
+- Create scripts/test_manual_execution_review_sample.py.
+- Use one fixed BTC/CAD sample command.
+- Write a local JSONL audit record.
+- Print a clean blocked / non-executable summary.
+
+Safety:
+- No private execution endpoint call.
+- No live trading.
+- No order placement.
+- No order cancellation.
+- No private account-changing permissions required.

@@ -481,3 +481,14 @@ The project now has a simulation package, audit log, command model, and command 
 
 Result:
 Manual execution command candidates can be reviewed locally, written to audit logs, and inspected as safe summaries without enabling live execution.
+
+## Slice 15G Decision — Add a Repeatable Manual Review Sample
+
+Decision:
+Add a repeatable sample runner for the manual execution review pipeline.
+
+Reason:
+After adding the manual execution review CLI, the project needs a simple known-good sample command that can be run without remembering CLI arguments.
+
+Result:
+The project can now run a one-command sample that creates a safe blocked review summary and writes a local audit record.
