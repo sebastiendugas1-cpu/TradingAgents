@@ -334,3 +334,38 @@ Commit message:
 ```text
 Add Kraken order preview dry-run model
 ```
+
+## Slice 14A — Live Trading Kill Switch and Execution Safety Config
+
+Status: Implemented pending validation.
+
+Goal:
+Create a global execution safety configuration that blocks all future live execution unless explicitly enabled.
+
+Default safety state:
+- `LIVE_TRADING_ENABLED=false`
+- `KILL_SWITCH=true`
+- `MAX_LIVE_TRADE_VALUE=0`
+
+Scope:
+- Configuration only.
+- Validation only.
+- No Kraken AddOrder call.
+- No Kraken CancelOrder call.
+- No live trading.
+- No funding.
+- No withdrawals.
+- No trading API permission requirement.
+
+Files introduced:
+- `tradingagents/execution/safety_config.py`
+- `scripts/test_live_execution_safety_config.py`
+
+Validation:
+- Confirms live trading is disabled by default.
+- Confirms kill switch is enabled by default.
+- Confirms max live trade value is zero by default.
+- Rejects unsafe settings.
+- Rejects dangerous permission terms.
+- Rejects dangerous executable action terms.
+- Confirms safe reports do not expose secrets.

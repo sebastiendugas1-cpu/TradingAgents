@@ -333,3 +333,21 @@ Safety boundaries:
 - The preview does not cancel orders.
 - The preview does not use API keys.
 - The preview is explicitly marked dry-run-only.
+
+## Slice 14A Decision — Live Execution Must Be Blocked by Default
+
+Decision:
+Before adding any future live execution layer, the project must first include a global safety config.
+
+Reason:
+The project already supports read-only Kraken access, paper trading, backtesting, TradingView webhook triggers, manual approval, risk gates, and dry-run previews. The next safety requirement is a hard global execution gate before any live trading function can exist.
+
+Chosen defaults:
+- `LIVE_TRADING_ENABLED=false`
+- `KILL_SWITCH=true`
+- `MAX_LIVE_TRADE_VALUE=0`
+
+Result:
+Future live execution must be explicitly enabled, must pass a kill-switch check, must have a positive max trade value, and must include explicit confirmation.
+
+This slice intentionally does not introduce Kraken AddOrder, Kraken CancelOrder, funding, withdrawal, or automatic live order functionality.

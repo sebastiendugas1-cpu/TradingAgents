@@ -86,3 +86,28 @@ APPROVE
 ```
 
 Manual-confirmation must be validated before restricted automation is considered.
+
+## Slice 14A — Global Live Execution Safety Config
+
+A global live execution safety config has been introduced.
+
+Default behavior is intentionally restrictive:
+- Live trading is disabled.
+- Kill switch is enabled.
+- Maximum live trade value is zero.
+
+The config is implemented in:
+
+`tradingagents/execution/safety_config.py`
+
+Future live execution code must call the safety gate before any executable action is allowed.
+
+Current restrictions:
+- No live trading code exists in this slice.
+- No Kraken AddOrder call exists in this slice.
+- No Kraken CancelOrder call exists in this slice.
+- No withdrawal code exists in this slice.
+- No funding code exists in this slice.
+- No trading permission is required for this slice.
+
+The safety config provides a safe report that excludes secrets and raw credential values.
