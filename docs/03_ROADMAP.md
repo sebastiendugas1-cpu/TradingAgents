@@ -289,3 +289,25 @@ Commit message:
 ```text
 Add manual-confirmation trading plan
 ```
+
+## Slice 13D — Risk Gate Engine
+
+Status: Complete.
+
+Goal:
+
+Create a hard safety gate that evaluates manually approved trade proposals before they can move to future dry-run/order-preview workflow.
+
+Safety:
+
+- No live trading.
+- No order placement.
+- No order cancellation.
+- No funding actions.
+- No withdrawals.
+
+Commit message:
+
+```text
+Add risk gate engine
+```

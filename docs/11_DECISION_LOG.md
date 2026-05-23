@@ -299,3 +299,21 @@ Key points:
 - The workflow does not cancel Kraken orders.
 - The workflow does not call private exchange APIs.
 - The workflow is still pre-execution only.
+
+## 2026-05-22 — Slice 13D Risk Gate Engine
+
+Decision:
+
+Added a safe risk gate engine that evaluates manually approved trade proposals before any future dry-run/order-preview workflow.
+
+The risk gate checks:
+
+- Kill switch state.
+- Manual approval requirement.
+- Allowed symbols.
+- Maximum trade value.
+- Maximum risk score.
+- Minimum confidence score.
+- Allowed decision statuses.
+
+This slice does not place orders, cancel orders, call trading endpoints, access funding, or withdraw assets.

@@ -250,3 +250,6 @@ reports/
 # Local manual confirmation records
 .manual-confirmation/
 .manual-confirmation-test/
+
+# Local risk gate outputs
+.risk-gate-output/
