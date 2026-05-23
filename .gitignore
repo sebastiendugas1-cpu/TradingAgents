@@ -217,3 +217,17 @@ __marimo__/
 
 # Cache
 **/data_cache/
+
+# Local terminal output logs
+output.txt
+output-*.txt
+
+# ChatGPT local terminal capture output
+.chatGPT-output/
+output.txt
+terminal-output.txt
+terminal-output-*.txt
+.terminal-output-baseline.txt
+
+# Local generated TradingAgents reports
+reports/
