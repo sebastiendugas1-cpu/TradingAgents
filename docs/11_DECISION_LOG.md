@@ -269,3 +269,17 @@ Key points:
 - Every proposal and decision must be logged.
 - Manual-confirmation must be validated before restricted automation.
 - This slice is documentation-only and does not add live trading.
+
+## 2026-05-22 — Slice 13B Trade Proposal Model
+
+Decision:
+
+Add a manual-confirmation trade proposal model that can represent proposed trades, risk summaries, and approval records without executing anything.
+
+Rules:
+
+- A trade proposal is not an order.
+- A trade proposal cannot call Kraken.
+- A trade proposal cannot execute live trades.
+- Blocked or watch-only decisions cannot become proposals.
+- Manual approval records are audit records only.

@@ -243,3 +243,6 @@ reports/
 
 # Local paper trading outputs
 .paper-trading/
+
+# Local manual-confirmation proposal logs
+.trade-proposals/
