@@ -1,15 +1,27 @@
-﻿# ============================ Kraken Package Exports ============================
+# ============================ Kraken Package Exports ============================
 
-from tradingagents.kraken.config import (
-    KrakenConfigError,
-    KrakenReadOnlyConfig,
-    load_kraken_readonly_config,
-    validate_kraken_readonly_config,
+from tradingagents.kraken.config import KrakenReadOnlyConfig, KrakenConfigError
+from tradingagents.kraken.private_readonly import (
+    KrakenBalance,
+    KrakenOpenOrder,
+    KrakenReadOnlyClientError,
+    KrakenReadOnlyMode,
+    KrakenReadOnlySnapshot,
+    KrakenTradeHistoryItem,
+    MockKrakenReadOnlyClient,
+    create_default_mock_kraken_readonly_client,
 )
 
 __all__ = [
-    "KrakenConfigError",
     "KrakenReadOnlyConfig",
-    "load_kraken_readonly_config",
-    "validate_kraken_readonly_config",
+    "KrakenConfigError",
+    "KrakenBalance",
+    "KrakenOpenOrder",
+    "KrakenReadOnlyClientError",
+    "KrakenReadOnlyMode",
+    "KrakenReadOnlySnapshot",
+    "KrakenTradeHistoryItem",
+    "MockKrakenReadOnlyClient",
+    "create_default_mock_kraken_readonly_client",
 ]
+

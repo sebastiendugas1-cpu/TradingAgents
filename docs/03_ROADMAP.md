@@ -177,3 +177,26 @@ Use historical and paper-trading results to improve strategies.
 
 
 
+
+## Slice 12B — Kraken Read-Only Mock Private Client
+
+Goal:
+
+Create a mock-only read-only Kraken private client interface before using real Kraken API keys.
+
+Safety:
+
+- No real Kraken private API calls.
+- No real account access.
+- No trading.
+- No withdrawals.
+- No funding actions.
+- All execution-like methods must be explicitly blocked.
+
+Validation:
+
+- Mock balances can be read.
+- Mock open orders can be read.
+- Mock trade history can be read.
+- Combined snapshot can be generated.
+- `place_order`, `cancel_order`, `withdraw`, and funding actions are blocked.

@@ -208,3 +208,22 @@ Key points:
 - Dangerous permission names are rejected.
 - Secret values must never be printed.
 - Real Kraken private account access will be a later slice.
+
+## 2026-05-22 — Slice 12B Kraken Read-Only Mock Client
+
+Decision:
+
+The first Kraken private-client implementation will be mock-only.
+
+Reason:
+
+This allows the project to define and test the account-data interface before any real Kraken API keys are used.
+
+Safety rules:
+
+- No private Kraken API calls.
+- No real balance reads.
+- No order placement.
+- No order cancellation.
+- No withdrawals.
+- No funding operations.

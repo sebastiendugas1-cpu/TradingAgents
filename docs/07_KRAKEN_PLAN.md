@@ -117,3 +117,23 @@ The config validator must reject:
 - funding enabled
 - dangerous permission names
 - any attempt to expose API key or secret values in output
+
+## Slice 12B Mock-Only Rule
+
+Before real private Kraken API calls are implemented, the project uses a mock-only read-only private client.
+
+This mock client proves the interface for:
+
+- Balances.
+- Open orders.
+- Trade history.
+- Account snapshot.
+
+It also proves that dangerous operations are blocked:
+
+- Placing orders.
+- Canceling orders.
+- Withdrawals.
+- Funding operations.
+
+No real Kraken keys are required for Slice 12B.
