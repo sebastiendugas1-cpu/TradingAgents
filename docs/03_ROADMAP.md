@@ -916,3 +916,26 @@ Safety:
 - No order placement.
 - No order cancellation.
 - No private account-changing permissions required.
+
+## Slice 18C — Kraken Order Translator Integration with Adapter Skeleton
+
+Status: Implemented pending validation.
+
+Goal:
+Connect the Kraken order request translator to the disabled Kraken live adapter skeleton.
+
+Scope:
+- Create 	radingagents/execution/kraken_order_translation_adapter_integration.py.
+- Create scripts/test_kraken_order_translation_adapter_integration.py.
+- Build manual command candidates from order intent.
+- Build SubmitOrderRequest.
+- Translate to Kraken-style validate=true review payload.
+- Route through disabled KrakenLiveAdapterSkeleton.
+- Return a blocked safe integration report.
+
+Safety:
+- No private execution endpoint call.
+- No live trading.
+- No order placement.
+- No order cancellation.
+- No private account-changing permissions required.

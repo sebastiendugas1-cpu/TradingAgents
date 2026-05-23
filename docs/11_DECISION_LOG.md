@@ -624,3 +624,14 @@ Slice 18A added the review-only Kraken-style order payload translator. The maste
 
 Result:
 The project now verifies the Kraken order translator during full safety regression.
+
+## Slice 18C Decision — Connect Kraken Translator to Disabled Adapter Skeleton
+
+Decision:
+Connect the Kraken order request translator to the disabled Kraken live adapter skeleton.
+
+Reason:
+The translator and skeleton must be tested together before future work can approach any live-capable adapter behavior.
+
+Result:
+The project can now prove that a future Kraken order payload can be reviewed and routed through the adapter boundary while remaining blocked.

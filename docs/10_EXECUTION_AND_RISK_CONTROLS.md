@@ -460,3 +460,15 @@ The master execution safety regression suite now includes:
 - Kraken private order request translator validation
 
 This ensures future safety-suite runs protect the review-only Kraken order payload translator before more live-adjacent work continues.
+
+## Slice 18C — Kraken Order Translator + Adapter Skeleton Integration
+
+The Kraken-style order payload translator now integrates with the disabled Kraken live adapter skeleton.
+
+The integration:
+- builds a command candidate
+- builds a submit request
+- creates a validate=true Kraken-style review payload
+- routes through the disabled skeleton
+- returns a blocked safe report
+- does not call Kraken
