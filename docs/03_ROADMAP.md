@@ -1106,3 +1106,27 @@ Safety:
 - No order placement.
 - No order cancellation.
 - No private account-changing permissions required.
+
+## Slice 20A — Disabled Kraken Private Transport Shell
+
+Status: Implemented pending validation.
+
+Goal:
+Create a disabled private transport shell for future Kraken private HTTP request handling.
+
+Scope:
+- Create 	radingagents/execution/kraken_private_transport_shell.py.
+- Create scripts/test_kraken_private_transport_shell.py.
+- Define safe config, preview request, and result models.
+- Define a blocked preview private request method.
+- Require activation policy evaluation.
+- Validate that no network or private endpoint call exists.
+
+Safety:
+- No network call.
+- No request signing.
+- No private execution endpoint call.
+- No live trading.
+- No order placement.
+- No order cancellation.
+- No private account-changing permissions required.

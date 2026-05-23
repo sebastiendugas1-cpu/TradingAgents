@@ -723,3 +723,14 @@ The operator should see the full path from payload generation to private client 
 
 Result:
 The CLI now displays the reviewed payload and the blocked private client shell result in one safe report.
+
+## Slice 20A Decision — Add Disabled Private Transport Shell Before Any Network Code
+
+Decision:
+Add a disabled Kraken private transport shell before any future network or signing implementation.
+
+Reason:
+The system needs a safe transport boundary before any code that could sign or send private requests can be considered.
+
+Result:
+The project now has a tested disabled private transport shell with blocked preview methods and no network calls.

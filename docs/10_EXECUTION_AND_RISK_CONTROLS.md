@@ -546,3 +546,15 @@ The CLI output now shows:
 - blocked private client status
 - private endpoint call = false
 - execution allowed = false
+
+## Slice 20A — Disabled Kraken Private Transport Shell
+
+A disabled Kraken private transport shell has been added.
+
+The shell:
+- has no HTTP/session object
+- has no signing implementation
+- has no network request implementation
+- blocks private request previews
+- requires activation policy evaluation
+- reports no network or private endpoint calls
