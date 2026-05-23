@@ -391,3 +391,25 @@ The master execution safety regression suite now includes:
 - execution adapter command integration validation
 
 This ensures future safety-suite runs protect the adapter boundary and mock adapter integration.
+
+## Slice 17D — Live Execution Activation Policy
+
+A strict activation policy has been added before any future live-capable adapter work.
+
+The policy requires:
+- kill switch state review
+- live trading config review
+- explicit manual confirmation
+- positive CAD cap
+- readiness report
+- risk gate
+- manual approval record
+- audit log readiness
+- adapter capability review
+- operator identity record
+- emergency shutdown confirmation
+- master regression suite pass
+- dry-run preview record
+- order value within limit
+
+This slice does not enable execution.

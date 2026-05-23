@@ -558,3 +558,14 @@ Slices 17A and 17B added execution-adjacent adapter architecture. The master sui
 
 Result:
 The project now verifies adapter interface and adapter-command integration during full safety regression.
+
+## Slice 17D Decision — Define Activation Policy Before Live-Capable Adapter Work
+
+Decision:
+Add a formal activation policy before adding any live-capable adapter implementation.
+
+Reason:
+The project is now near the live execution boundary. A strict policy gate must exist before any future implementation can be reviewed.
+
+Result:
+The project now has a tested policy module and document that define required evidence, manual statement, and shutdown expectations without enabling execution.

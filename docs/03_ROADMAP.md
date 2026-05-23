@@ -788,3 +788,26 @@ Safety:
 - No order placement.
 - No order cancellation.
 - No private account-changing permissions required.
+
+## Slice 17D — Live Execution Activation Policy
+
+Status: Implemented pending validation.
+
+Goal:
+Define the strict policy gate for any future live execution activation.
+
+Scope:
+- Create 	radingagents/execution/live_execution_activation_policy.py.
+- Create docs/16_LIVE_EXECUTION_ACTIVATION_POLICY.md.
+- Create scripts/test_live_execution_activation_policy.py.
+- Define required evidence before future live execution can be considered.
+- Define required manual statement.
+- Define emergency shutdown requirements.
+- Validate that policy remains non-executing.
+
+Safety:
+- No private execution endpoint call.
+- No live trading.
+- No order placement.
+- No order cancellation.
+- No private account-changing permissions required.
