@@ -388,3 +388,22 @@ Chosen behavior:
 - Secret values are never included in the report.
 
 This slice intentionally does not introduce Kraken AddOrder, Kraken CancelOrder, funding, withdrawal, or automatic live order functionality.
+
+## Slice 14D Decision — Add Final Manual Live Execution Readiness Report
+
+Decision:
+Before any future manual live order slice, the project must provide one combined readiness report across all safety layers.
+
+Reason:
+Separate safety layers now exist:
+- Live execution safety config.
+- Disabled Kraken live execution client skeleton.
+- Live execution permission preflight.
+- Risk gate engine.
+- Manual approval workflow.
+
+A combined report helps confirm whether the full system is still blocked by default or theoretically ready under intentionally configured conditions.
+
+Result:
+The default readiness state remains blocked. The report is safe to log, excludes secrets, and does not call execution endpoints.
+

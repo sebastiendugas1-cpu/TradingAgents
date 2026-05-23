@@ -435,3 +435,35 @@ Validation confirms:
 - Dangerous funding/withdrawal environment terms are detected.
 - Secret values are not printed in the report.
 - No Kraken execution endpoint call is introduced.
+
+## Slice 14D — Manual Live Execution Readiness Report
+
+Status: Implemented pending validation.
+
+Goal:
+Create a final readiness report that combines all safety layers before any future manual live execution can be considered.
+
+Scope:
+- Report safety configuration status.
+- Report live execution preflight status.
+- Report disabled Kraken execution client status.
+- Report risk gate readiness status.
+- Report manual approval readiness status.
+- Produce a safe-to-log readiness report.
+- Keep default state blocked.
+- Do not call Kraken execution endpoints.
+- Do not place or cancel orders.
+- Do not require trading, funding, or withdrawal permissions.
+
+Files introduced:
+- `tradingagents/execution/manual_live_execution_readiness.py`
+- `scripts/test_manual_live_execution_readiness_report.py`
+
+Validation:
+- Confirms default readiness is blocked.
+- Confirms readiness assertion fails safely by default.
+- Confirms permissive config remains blocked by the disabled client skeleton.
+- Confirms risk gate and manual approval readiness are reported.
+- Confirms safe report does not expose secrets.
+- Confirms no execution endpoint names are present in readiness source.
+

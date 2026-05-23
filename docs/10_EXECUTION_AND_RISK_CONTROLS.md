@@ -156,3 +156,24 @@ Current restrictions remain unchanged:
 - No withdrawal code exists in this slice.
 - No funding code exists in this slice.
 - No trading permission is required for this slice.
+
+## Slice 14D — Manual Live Execution Readiness Report
+
+The project now includes a combined manual live execution readiness report.
+
+The readiness report combines:
+- Safety config status.
+- Live execution preflight status.
+- Disabled Kraken live execution client status.
+- Risk gate readiness status.
+- Manual approval readiness status.
+
+Default result:
+- Live execution remains blocked.
+- The report is safe to log.
+- No secrets are printed.
+- No Kraken execution endpoints are called.
+- No trading, funding, or withdrawal permission is required.
+
+This slice is still a safety/reporting slice only. It does not enable live trading.
+
