@@ -1,4 +1,28 @@
-﻿"""
+$ErrorActionPreference = "Stop"
+
+Write-Host "=== SLICE 19E ADD PRIVATE CLIENT RESULT TO PAYLOAD REVIEW CLI ==="
+
+if (-not (Test-Path ".\tradingagents")) {
+    throw "Run this script from the TradingAgents project root."
+}
+
+$cliPath = ".\scripts\run_kraken_order_payload_review.py"
+$testPath = ".\scripts\test_kraken_order_payload_review_cli.py"
+
+if (-not (Test-Path $cliPath)) {
+    throw "Missing CLI file: $cliPath"
+}
+
+if (-not (Test-Path $testPath)) {
+    throw "Missing CLI test file: $testPath"
+}
+
+if (-not (Test-Path ".\tradingagents\execution\kraken_payload_review_private_client_integration.py")) {
+    throw "Missing Slice 19C payload review private client integration module."
+}
+
+$cliContent = @'
+"""
 Slice 19E Kraken order payload review CLI.
 
 This CLI builds a manual command candidate, translates it into a Kraken-style
@@ -158,3 +182,144 @@ def run_cli(argv: list[str] | None = None) -> int:
 
 if __name__ == "__main__":
     raise SystemExit(run_cli())
+'@
+
+Set-Content -Path $cliPath -Value $cliContent -Encoding UTF8
+Write-Host "[UPDATED] $cliPath"
+
+$test = Get-Content $testPath -Raw
+
+if ($test -notlike "*private_client_report*") {
+    $test = $test.Replace(
+'        assert report["secrets_included"] is False
+        assert audit_path.exists()',
+'        assert report["secrets_included"] is False
+        assert "private_client_report" in report
+        assert report["private_client_report"]["blocked"] is True
+        assert report["private_client_report"]["operation"] == "submit_private_order_preview"
+        assert report["private_client_report"]["private_endpoint_called"] is False
+        assert audit_path.exists()'
+    )
+
+    $test = $test.Replace(
+'        assert payload["secrets_included"] is False',
+'        assert payload["secrets_included"] is False
+        assert payload["private_client_report"]["blocked"] is True
+        assert payload["private_client_report"]["operation"] == "submit_private_order_preview"
+        assert payload["private_client_report"]["private_endpoint_called"] is False'
+    )
+
+    $test = $test.Replace(
+'        assert payload["slice"] == "18E"',
+'        assert payload["slice"] == "19E"'
+    )
+
+    $test = $test.Replace(
+'    print("[OK] payload review builder creates safe limit review")',
+'    print("[OK] payload review builder creates safe limit review with private client preview")'
+    )
+
+    Write-Host "[UPDATED] $testPath"
+} else {
+    Write-Host "[SKIPPED] $testPath already validates private client report"
+}
+
+Set-Content -Path $testPath -Value $test -Encoding UTF8
+
+function Add-DocBlockOnce {
+    param(
+        [string]$Path,
+        [string]$Marker,
+        [string]$Block
+    )
+
+    if (-not (Test-Path $Path)) {
+        throw "Missing doc file: $Path"
+    }
+
+    $existing = Get-Content $Path -Raw
+
+    if ($existing -notlike "*$Marker*") {
+        Add-Content -Path $Path -Value "`n$Block" -Encoding UTF8
+        Write-Host "[UPDATED] $Path"
+    } else {
+        Write-Host "[SKIPPED] $Path already contains $Marker"
+    }
+}
+
+$roadmapBlock = @"
+## Slice 19E — Add Private Client Result to Payload Review CLI
+
+Status: Implemented pending validation.
+
+Goal:
+Extend the Kraken payload review CLI so it shows the disabled private client shell preview result.
+
+Scope:
+- Update `scripts/run_kraken_order_payload_review.py`.
+- Update `scripts/test_kraken_order_payload_review_cli.py`.
+- Route the CLI review path through the Slice 19C private client integration.
+- Include `private_client_report` in text and JSON output.
+- Validate the private client report remains blocked and safe.
+
+Safety:
+- No private execution endpoint call.
+- No live trading.
+- No order placement.
+- No order cancellation.
+- No private account-changing permissions required.
+"@
+
+$controlsBlock = @"
+## Slice 19E — Payload Review CLI Includes Private Client Shell Preview
+
+The Kraken payload review CLI now includes the disabled private client shell preview result.
+
+The CLI output now shows:
+- Kraken-style validate=true payload
+- disabled private client operation
+- blocked private client status
+- private endpoint call = false
+- execution allowed = false
+"@
+
+$decisionBlock = @"
+## Slice 19E Decision — Surface Private Client Shell Preview in Review CLI
+
+Decision:
+Update the payload review CLI to show the disabled private client shell preview result.
+
+Reason:
+The operator should see the full path from payload generation to private client boundary before future private transport work begins.
+
+Result:
+The CLI now displays the reviewed payload and the blocked private client shell result in one safe report.
+"@
+
+Add-DocBlockOnce -Path ".\docs\03_ROADMAP.md" -Marker "Slice 19E — Add Private Client Result to Payload Review CLI" -Block $roadmapBlock
+Add-DocBlockOnce -Path ".\docs\10_EXECUTION_AND_RISK_CONTROLS.md" -Marker "Slice 19E — Payload Review CLI Includes Private Client Shell Preview" -Block $controlsBlock
+Add-DocBlockOnce -Path ".\docs\11_DECISION_LOG.md" -Marker "Slice 19E Decision — Surface Private Client Shell Preview in Review CLI" -Block $decisionBlock
+
+python -m py_compile $cliPath
+python -m py_compile $testPath
+
+Write-Host ""
+Write-Host "=== CURRENT BRANCH ==="
+git branch --show-current
+
+Write-Host ""
+Write-Host "=== GIT STATUS ==="
+git status --short
+
+Write-Host ""
+Write-Host "=== SLICE 19E FILES ==="
+Get-Item `
+    ".\scripts\run_kraken_order_payload_review.py", `
+    ".\scripts\test_kraken_order_payload_review_cli.py", `
+    ".\docs\03_ROADMAP.md", `
+    ".\docs\10_EXECUTION_AND_RISK_CONTROLS.md", `
+    ".\docs\11_DECISION_LOG.md" |
+    Select-Object Name, Length, LastWriteTime
+
+Write-Host ""
+Write-Host "Slice 19E script completed."

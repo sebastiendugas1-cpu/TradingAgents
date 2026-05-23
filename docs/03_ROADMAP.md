@@ -1085,3 +1085,24 @@ Safety:
 - No order placement.
 - No order cancellation.
 - No private account-changing permissions required.
+
+## Slice 19E — Add Private Client Result to Payload Review CLI
+
+Status: Implemented pending validation.
+
+Goal:
+Extend the Kraken payload review CLI so it shows the disabled private client shell preview result.
+
+Scope:
+- Update scripts/run_kraken_order_payload_review.py.
+- Update scripts/test_kraken_order_payload_review_cli.py.
+- Route the CLI review path through the Slice 19C private client integration.
+- Include private_client_report in text and JSON output.
+- Validate the private client report remains blocked and safe.
+
+Safety:
+- No private execution endpoint call.
+- No live trading.
+- No order placement.
+- No order cancellation.
+- No private account-changing permissions required.

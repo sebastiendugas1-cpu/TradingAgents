@@ -712,3 +712,14 @@ Slice 19C connected the reviewed Kraken-style payload path to the disabled priva
 
 Result:
 The project now verifies the payload review private client integration during full safety regression.
+
+## Slice 19E Decision — Surface Private Client Shell Preview in Review CLI
+
+Decision:
+Update the payload review CLI to show the disabled private client shell preview result.
+
+Reason:
+The operator should see the full path from payload generation to private client boundary before future private transport work begins.
+
+Result:
+The CLI now displays the reviewed payload and the blocked private client shell result in one safe report.

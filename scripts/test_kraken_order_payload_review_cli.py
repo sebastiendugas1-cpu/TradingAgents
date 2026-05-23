@@ -60,9 +60,13 @@ def test_build_payload_review_limit_order() -> None:
         assert report["execution_allowed"] is False
         assert report["private_endpoint_called"] is False
         assert report["secrets_included"] is False
+        assert "private_client_report" in report
+        assert report["private_client_report"]["blocked"] is True
+        assert report["private_client_report"]["operation"] == "submit_private_order_preview"
+        assert report["private_client_report"]["private_endpoint_called"] is False
         assert audit_path.exists()
 
-    print("[OK] payload review builder creates safe limit review")
+    print("[OK] payload review builder creates safe limit review with private client preview")
 
 
 def test_run_cli_text_mode() -> None:
@@ -121,11 +125,14 @@ def test_subprocess_json_mode() -> None:
         kraken_payload = payload["kraken_payload"]
 
         assert payload["mode"] == "kraken_order_payload_review"
-        assert payload["slice"] == "18E"
+        assert payload["slice"] == "19E"
         assert payload["blocked"] is True
         assert payload["execution_allowed"] is False
         assert payload["private_endpoint_called"] is False
         assert payload["secrets_included"] is False
+        assert payload["private_client_report"]["blocked"] is True
+        assert payload["private_client_report"]["operation"] == "submit_private_order_preview"
+        assert payload["private_client_report"]["private_endpoint_called"] is False
         assert kraken_payload["pair"] == "SOL/CAD"
         assert kraken_payload["type"] == "sell"
         assert kraken_payload["ordertype"] == "market"
@@ -203,3 +210,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
