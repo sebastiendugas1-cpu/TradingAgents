@@ -613,3 +613,14 @@ Before any future live-capable code can be considered, the exact order payload s
 
 Result:
 The project can now generate safe review-only Kraken-style order payloads from command/request objects.
+
+## Slice 18B Decision — Protect Kraken Order Translator in Master Regression Suite
+
+Decision:
+Add the Kraken private order request translator test to the master safety regression suite.
+
+Reason:
+Slice 18A added the review-only Kraken-style order payload translator. The master suite must protect it before future work builds on top of the payload shape.
+
+Result:
+The project now verifies the Kraken order translator during full safety regression.

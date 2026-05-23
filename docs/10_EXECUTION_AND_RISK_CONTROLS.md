@@ -453,3 +453,10 @@ The translator:
 - produces safe reports
 - does not call Kraken
 - does not enable execution
+
+## Slice 18B — Kraken Order Translator Test Added to Safety Regression Suite
+
+The master execution safety regression suite now includes:
+- Kraken private order request translator validation
+
+This ensures future safety-suite runs protect the review-only Kraken order payload translator before more live-adjacent work continues.
