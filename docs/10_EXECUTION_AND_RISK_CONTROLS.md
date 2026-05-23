@@ -199,3 +199,26 @@ Current restrictions:
 - No trading API permission requirement.
 
 The output is safe to log and does not include secrets.
+
+## Slice 15B — Execution Audit Log
+
+An execution audit log layer has been introduced.
+
+Purpose:
+- Record every future simulated or live execution decision.
+- Preserve package ID, pair, side, order type, volume, price, readiness status, risk status, approval status, preview status, final status, and reasons.
+- Store records in append-only JSONL format.
+- Redact secret-like metadata before writing.
+
+Current restrictions:
+- No private execution endpoint call exists in this slice.
+- No order placement exists in this slice.
+- No order cancellation exists in this slice.
+- No funding or withdrawal behavior exists in this slice.
+- No trading permission is required for this slice.
+
+Default local audit output path:
+
+`.chatGPT-output/execution_audit/execution_audit.jsonl`
+
+This path is intended for local ignored output, not committed project state.

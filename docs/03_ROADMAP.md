@@ -496,3 +496,33 @@ Validation:
 - Confirms dangerous environment terms keep the package blocked.
 - Confirms no secrets are printed.
 - Confirms no private execution endpoint names are introduced.
+
+## Slice 15B — Execution Audit Log
+
+Status: Implemented pending validation.
+
+Goal:
+Create a local append-only audit log model for every future simulated or live execution decision.
+
+Scope:
+- Audit record model.
+- JSONL audit writer.
+- Secret-like metadata redaction.
+- Validation script.
+- No private execution endpoint calls.
+- No live trading.
+- No funding.
+- No withdrawals.
+- No trading API permission requirement.
+
+Files introduced:
+- `tradingagents/execution/execution_audit_log.py`
+- `scripts/test_execution_audit_log.py`
+- `scripts/create_slice_15b_execution_audit_log.ps1`
+
+Validation:
+- Confirms audit records can be created safely.
+- Confirms JSONL records can be written and read.
+- Confirms secret-like metadata is redacted.
+- Confirms unsafe or malformed records are rejected.
+- Confirms no private execution endpoint names are introduced.

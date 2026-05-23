@@ -418,3 +418,14 @@ The project now has safety config, a disabled live execution client skeleton, pe
 
 Result:
 The system can represent the final manual execution flow without calling any private execution endpoint. This gives a safer test target before future live execution work.
+
+## Slice 15B Decision — Audit Before Real Execution
+
+Decision:
+Before adding any real manual execution path, the project must have a durable local audit log for simulated and future live execution decisions.
+
+Reason:
+A trading system must be able to explain what was proposed, what was approved, what risk checks passed, what preview was generated, what final decision was made, and why.
+
+Result:
+Slice 15B adds a safe audit record model and JSONL writer. It remains execution-free and does not introduce private execution endpoint calls, funding, withdrawals, or trading permission requirements.
