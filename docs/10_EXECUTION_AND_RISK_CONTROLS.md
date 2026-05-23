@@ -413,3 +413,10 @@ The policy requires:
 - order value within limit
 
 This slice does not enable execution.
+
+## Slice 17E — Activation Policy Test Added to Safety Regression Suite
+
+The master execution safety regression suite now includes:
+- live execution activation policy validation
+
+This ensures future safety-suite runs protect the policy gate before live-capable adapter work continues.

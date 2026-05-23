@@ -811,3 +811,23 @@ Safety:
 - No order placement.
 - No order cancellation.
 - No private account-changing permissions required.
+
+## Slice 17E — Add Activation Policy Test to Master Safety Regression Suite
+
+Status: Implemented pending validation.
+
+Goal:
+Protect the Slice 17D activation policy with the master safety regression suite.
+
+Scope:
+- Update scripts/run_execution_safety_regression_suite.py.
+- Add scripts/test_live_execution_activation_policy.py to the default safety suite.
+- Update scripts/test_execution_safety_regression_suite_runner.py.
+- Validate that the master safety suite includes the activation policy test.
+
+Safety:
+- No private execution endpoint call.
+- No live trading.
+- No order placement.
+- No order cancellation.
+- No private account-changing permissions required.

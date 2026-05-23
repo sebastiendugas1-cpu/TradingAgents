@@ -569,3 +569,14 @@ The project is now near the live execution boundary. A strict policy gate must e
 
 Result:
 The project now has a tested policy module and document that define required evidence, manual statement, and shutdown expectations without enabling execution.
+
+## Slice 17E Decision — Protect Activation Policy in Master Regression Suite
+
+Decision:
+Add the activation policy test to the master safety regression suite.
+
+Reason:
+Slice 17D added the strict policy gate before future live-capable adapter work. That policy must be part of the one-command safety regression suite.
+
+Result:
+The project now verifies the activation policy during full safety regression.
