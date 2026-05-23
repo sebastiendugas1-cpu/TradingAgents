@@ -246,3 +246,7 @@ reports/
 
 # Local manual-confirmation proposal logs
 .trade-proposals/
+
+# Local manual confirmation records
+.manual-confirmation/
+.manual-confirmation-test/

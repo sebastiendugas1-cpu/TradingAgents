@@ -283,3 +283,19 @@ Rules:
 - A trade proposal cannot execute live trades.
 - Blocked or watch-only decisions cannot become proposals.
 - Manual approval records are audit records only.
+
+## 2026-05-22 — Slice 13C Manual Approval Workflow
+
+Decision:
+
+Created a local manual approval workflow for trade proposals.
+
+Key points:
+
+- Approval requires exact confirmation text: `APPROVE <proposal_id>`.
+- Rejection requires exact confirmation text: `REJECT <proposal_id>`.
+- Approval/rejection records are written locally.
+- The workflow does not place Kraken orders.
+- The workflow does not cancel Kraken orders.
+- The workflow does not call private exchange APIs.
+- The workflow is still pre-execution only.

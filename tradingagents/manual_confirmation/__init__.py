@@ -23,3 +23,20 @@ __all__ = [
     "TradeProposalLog",
     "build_trade_proposal_from_scorecard",
 ]
+
+from tradingagents.manual_confirmation.workflow import (
+    ManualApprovalWorkflow,
+    ManualApprovalWorkflowError,
+    ManualApprovalWorkflowRecord,
+)
+
+try:
+    __all__
+except NameError:
+    __all__ = []
+
+__all__ += [
+    "ManualApprovalWorkflow",
+    "ManualApprovalWorkflowError",
+    "ManualApprovalWorkflowRecord",
+]
