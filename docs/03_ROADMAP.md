@@ -679,3 +679,25 @@ Safety:
 - No order placement.
 - No order cancellation.
 - No private account-changing permissions required.
+
+## Slice 16A — Manual Execution Pipeline End-to-End Regression Test
+
+Status: Implemented pending validation.
+
+Goal:
+Add one regression test that validates the complete manual execution review pipeline.
+
+Scope:
+- Create scripts/test_manual_execution_pipeline_regression.py.
+- Validate the fixed sample runner.
+- Validate the custom manual execution review CLI.
+- Validate local audit log write/read behavior.
+- Validate the usage guide exists.
+- Validate source files do not contain private execution endpoint names.
+
+Safety:
+- No private execution endpoint call.
+- No live trading.
+- No order placement.
+- No order cancellation.
+- No private account-changing permissions required.

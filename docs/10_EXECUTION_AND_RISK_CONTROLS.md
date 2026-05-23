@@ -323,3 +323,17 @@ The guide documents:
 - what remains forbidden before future live execution work
 
 This slice is documentation and validation only.
+
+## Slice 16A — Manual Execution Pipeline Regression Test
+
+A regression test now validates the full manual execution review pipeline.
+
+The regression test checks:
+- sample runner output
+- custom CLI output
+- audit log write/read behavior
+- blocked / non-executable status
+- safe source wording
+- usage guide presence
+
+This protects the safe manual-review workflow from accidental breakage in future slices.

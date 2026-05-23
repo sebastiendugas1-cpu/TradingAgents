@@ -503,3 +503,14 @@ The project now has a working safe review pipeline. It needs clear commands and 
 
 Result:
 The user can run the manual review tools safely from PowerShell and understand that the output remains blocked and non-executable.
+
+## Slice 16A Decision — Protect the Manual Review Pipeline with Regression Coverage
+
+Decision:
+Add an end-to-end regression test before moving closer to live execution adapter work.
+
+Reason:
+The project now has many connected safety pieces. A single regression test is needed to confirm the complete pipeline remains blocked, non-executable, auditable, and safe to log.
+
+Result:
+Future changes can be tested against one script that validates the manual review pipeline from sample runner through audit output.
