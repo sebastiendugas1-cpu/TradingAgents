@@ -132,3 +132,27 @@ Current restrictions:
 - No live cancellation is implemented.
 - No withdrawal or funding behavior exists.
 - No trading permission is required for validation.
+
+## Slice 14C — Live Execution Permission Preflight
+
+A live execution permission preflight layer has been introduced.
+
+The preflight layer reports:
+- Whether live trading is enabled.
+- Whether the kill switch is active.
+- The maximum configured live trade value.
+- Whether explicit confirmation is present and valid.
+- Whether dangerous funding/withdrawal environment terms were detected.
+
+The preflight report is safe to log:
+- It does not expose API keys.
+- It does not expose API secrets.
+- It does not expose token or password values.
+- It records whether execution endpoints were called, which remains false in this slice.
+
+Current restrictions remain unchanged:
+- No Kraken AddOrder call exists in this slice.
+- No Kraken CancelOrder call exists in this slice.
+- No withdrawal code exists in this slice.
+- No funding code exists in this slice.
+- No trading permission is required for this slice.

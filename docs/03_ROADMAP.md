@@ -404,3 +404,34 @@ Validation:
 - Private client test double is never called.
 - Safe report excludes secrets.
 - Client source contains no Kraken live execution endpoint names.
+
+## Slice 14C — Live Execution Permission Preflight
+
+Status: Implemented pending validation.
+
+Goal:
+Add a preflight validator that checks whether the environment and safety configuration are acceptable before any future live execution path can be considered.
+
+Scope:
+- Safety preflight only.
+- Safe-to-log reporting only.
+- No Kraken AddOrder call.
+- No Kraken CancelOrder call.
+- No live trading.
+- No funding.
+- No withdrawals.
+- No trading API permission requirement.
+
+Files introduced:
+- `tradingagents/execution/live_execution_preflight.py`
+- `scripts/test_live_execution_permission_preflight.py`
+- `scripts/create_slice_14c_live_execution_permission_preflight.ps1`
+
+Validation confirms:
+- Default preflight blocks live execution.
+- Kill switch blocks preflight.
+- Zero max live trade value blocks preflight.
+- Missing explicit confirmation blocks preflight.
+- Dangerous funding/withdrawal environment terms are detected.
+- Secret values are not printed in the report.
+- No Kraken execution endpoint call is introduced.

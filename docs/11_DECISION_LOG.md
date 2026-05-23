@@ -369,3 +369,22 @@ Chosen approach:
 
 Result:
 The project gains the live execution client structure without enabling live trading.
+
+## Slice 14C Decision — Add Preflight Before Any Future Live Execution
+
+Decision:
+Before any future manually triggered live execution path can be developed, the project must include a dedicated preflight validator.
+
+Reason:
+The project now has a kill switch, disabled-by-default live execution config, and a blocked Kraken live execution client skeleton. A separate preflight layer gives the project a safe status report before any future execution path can even be considered.
+
+Chosen behavior:
+- Preflight fails by default.
+- Kill switch blocks preflight.
+- Disabled live trading blocks preflight.
+- Zero max live trade value blocks preflight.
+- Missing explicit confirmation blocks preflight.
+- Dangerous funding/withdrawal environment terms are reported safely.
+- Secret values are never included in the report.
+
+This slice intentionally does not introduce Kraken AddOrder, Kraken CancelOrder, funding, withdrawal, or automatic live order functionality.
