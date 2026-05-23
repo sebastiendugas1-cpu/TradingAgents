@@ -317,3 +317,19 @@ The risk gate checks:
 - Allowed decision statuses.
 
 This slice does not place orders, cancel orders, call trading endpoints, access funding, or withdraw assets.
+
+## 2026-05-22 — Slice 13E Kraken Order Preview / Dry-Run Model
+
+Decision:
+
+Added a dry-run-only Kraken order preview model.
+
+This allows the system to convert an approved proposal and passing risk-gate result into a local Kraken-style payload for inspection only.
+
+Safety boundaries:
+
+- The preview does not call Kraken.
+- The preview does not place orders.
+- The preview does not cancel orders.
+- The preview does not use API keys.
+- The preview is explicitly marked dry-run-only.

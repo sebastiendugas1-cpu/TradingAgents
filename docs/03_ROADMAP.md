@@ -311,3 +311,26 @@ Commit message:
 ```text
 Add risk gate engine
 ```
+
+## Slice 13E — Kraken Order Preview / Dry-Run Model
+
+Status: Complete.
+
+Goal:
+
+Create a Kraken-style order preview from an approved trade proposal that passed the risk gate.
+
+Safety:
+
+- No Kraken AddOrder call.
+- No order cancellation.
+- No live trading.
+- No funding.
+- No withdrawals.
+- Dry-run-only payload generation.
+
+Commit message:
+
+```text
+Add Kraken order preview dry-run model
+```
