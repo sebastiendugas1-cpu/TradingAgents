@@ -40,3 +40,20 @@ Each slice must include:
 Decision:
 
 No live Kraken trading until read-only analysis, market data, backtesting, paper trading, and manual-confirmation trading are validated.
+
+## 2026-05-22 — Slice 3 Asset Normalization
+
+Decision:
+
+The project will use a shared asset normalization layer before adding Kraken, TradingView, backtesting, or execution logic.
+
+Initial normalized formats:
+
+- Crypto pairs use `BASE/QUOTE`, such as `BTC/USD`.
+- Traditional tickers use uppercase ticker symbols, such as `AAPL`.
+- TradingView-style prefixes such as `NASDAQ:AAPL` and `KRAKEN:BTCUSD` are preserved as `venue_prefix` metadata.
+- Kraken alias `XBT` is normalized to `BTC`.
+
+Safety:
+
+This slice adds no trading capability and no external API calls.
