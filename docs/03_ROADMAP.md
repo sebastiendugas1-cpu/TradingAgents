@@ -148,7 +148,7 @@ Goal:
 
 Simulate live trading without real money using a safe paper account, fake balances, simulated fills, rejected orders, blocked orders, and P/L reporting.
 
-## Slice 12 — Kraken Read-Only Account Integration
+## Slice 12A — Kraken Read-Only Safety Plan and Config Validator
 
 Goal:
 
@@ -171,6 +171,7 @@ Enable limited real order execution with strict risk controls.
 Goal:
 
 Use historical and paper-trading results to improve strategies.
+
 
 
 

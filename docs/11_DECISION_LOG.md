@@ -193,3 +193,18 @@ Key points:
 - No real balances.
 - Supports paper cash, positions, fills, rejected orders, blocked orders, and reports.
 - Supports converting PAPER_TRADE scorecards into simulated paper trades.
+
+## 2026-05-22 — Slice 12A Kraken Read-Only Safety Config
+
+Decision:
+
+Before using real Kraken private API keys, the project will first add a read-only configuration validator.
+
+Key points:
+
+- Slice 12A does not call Kraken private APIs.
+- Slice 12A does not require real Kraken keys.
+- Trading, funding, and withdrawal flags are rejected.
+- Dangerous permission names are rejected.
+- Secret values must never be printed.
+- Real Kraken private account access will be a later slice.
