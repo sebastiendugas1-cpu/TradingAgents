@@ -237,3 +237,6 @@ reports/
 
 # Local TradingView signal logs
 .signals/
+
+# Local generated backtest outputs
+.backtests/

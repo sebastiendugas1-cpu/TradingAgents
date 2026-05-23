@@ -163,3 +163,18 @@ Key points:
 - Does not support live-trade execution.
 - Does not call Kraken private APIs.
 - Does not place orders.
+
+## 2026-05-22 — Slice 10 Backtesting Engine
+
+Decision:
+
+A safe historical backtesting layer was added.
+
+Key points:
+
+- The backtesting engine simulates historical trades only.
+- It does not place orders.
+- It does not call Kraken private APIs.
+- It supports long and short simulations.
+- It uses candle data and structured simulated signals.
+- Outputs include simulated trades, P/L, win rate, drawdown, and profit factor.

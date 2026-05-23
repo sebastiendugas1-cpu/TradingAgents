@@ -134,6 +134,8 @@ Convert agent opinions into measurable trading decisions.
 
 ## Slice 10 — Backtesting Engine
 
+Status: Complete.
+
 Goal:
 
 Evaluate strategies against historical data.
@@ -167,6 +169,7 @@ Enable limited real order execution with strict risk controls.
 Goal:
 
 Use historical and paper-trading results to improve strategies.
+
 
 
 
