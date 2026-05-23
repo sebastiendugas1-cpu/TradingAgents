@@ -635,3 +635,14 @@ The translator and skeleton must be tested together before future work can appro
 
 Result:
 The project can now prove that a future Kraken order payload can be reviewed and routed through the adapter boundary while remaining blocked.
+
+## Slice 18D Decision — Protect Kraken Translator Adapter Integration in Master Regression Suite
+
+Decision:
+Add the Kraken order translator adapter integration test to the master safety regression suite.
+
+Reason:
+Slice 18C connected the Kraken-style payload translator to the disabled Kraken adapter skeleton. The master suite must protect that integration before future work builds on top of it.
+
+Result:
+The project now verifies the Kraken translator adapter integration during full safety regression.

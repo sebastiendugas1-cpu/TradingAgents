@@ -472,3 +472,10 @@ The integration:
 - routes through the disabled skeleton
 - returns a blocked safe report
 - does not call Kraken
+
+## Slice 18D — Kraken Translator Adapter Integration Test Added to Safety Regression Suite
+
+The master execution safety regression suite now includes:
+- Kraken order translator adapter integration validation
+
+This ensures future safety-suite runs protect the validate=true payload translation and disabled adapter routing path.
