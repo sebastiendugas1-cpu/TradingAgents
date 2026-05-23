@@ -407,3 +407,14 @@ A combined report helps confirm whether the full system is still blocked by defa
 Result:
 The default readiness state remains blocked. The report is safe to log, excludes secrets, and does not call execution endpoints.
 
+
+## Slice 15A Decision — Simulate the Full Manual Execution Flow Before Live Execution
+
+Decision:
+Before introducing any real live order path, the project will first build an end-to-end manual live order simulation package.
+
+Reason:
+The project now has safety config, a disabled live execution client skeleton, permission preflight, readiness reporting, risk gates, manual approval, and dry-run order preview. The next practical step is to connect these pieces into one simulated manual execution package.
+
+Result:
+The system can represent the final manual execution flow without calling any private execution endpoint. This gives a safer test target before future live execution work.

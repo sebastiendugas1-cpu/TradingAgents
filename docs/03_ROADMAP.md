@@ -467,3 +467,32 @@ Validation:
 - Confirms safe report does not expose secrets.
 - Confirms no execution endpoint names are present in readiness source.
 
+
+## Slice 15A — Manual Live Order Simulation Package
+
+Status: Implemented pending validation.
+
+Goal:
+Connect the existing safety and manual-execution layers into one safe end-to-end simulation package.
+
+Scope:
+- Builds a manual live order simulation package.
+- Validates order intent.
+- Includes manual live execution readiness status.
+- Includes dry-run preview representation.
+- Keeps the final result blocked by design.
+- Does not place or cancel live orders.
+- Does not call private execution endpoints.
+- Does not require trading, funding, or withdrawal permissions.
+
+Files introduced:
+- `tradingagents/execution/manual_live_order_simulation_package.py`
+- `scripts/test_manual_live_order_simulation_package.py`
+
+Validation:
+- Confirms default package is blocked.
+- Confirms permissive config remains simulation-only.
+- Confirms invalid order input is captured.
+- Confirms dangerous environment terms keep the package blocked.
+- Confirms no secrets are printed.
+- Confirms no private execution endpoint names are introduced.

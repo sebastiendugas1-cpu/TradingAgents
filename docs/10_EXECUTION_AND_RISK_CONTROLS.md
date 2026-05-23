@@ -177,3 +177,25 @@ Default result:
 
 This slice is still a safety/reporting slice only. It does not enable live trading.
 
+
+## Slice 15A — Manual Live Order Simulation Package
+
+Slice 15A connects the manual execution pipeline into a safe simulation package.
+
+The package combines:
+- order intent validation
+- live execution readiness reporting
+- dry-run preview representation
+- a final simulation-only boundary
+
+This slice remains blocked by design.
+
+Current restrictions:
+- No live order placement.
+- No live order cancellation.
+- No private execution endpoint calls.
+- No funding behavior.
+- No withdrawal behavior.
+- No trading API permission requirement.
+
+The output is safe to log and does not include secrets.
