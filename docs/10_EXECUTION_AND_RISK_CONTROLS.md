@@ -578,3 +578,10 @@ The integration:
 - confirms no request is signed
 - confirms no request is sent
 - confirms no network/private endpoint call is made
+
+## Slice 20D — Private Client Transport Integration Test Added to Safety Regression Suite
+
+The master execution safety regression suite now includes:
+- disabled private client transport integration validation
+
+This ensures future safety-suite runs protect the boundary from private client shell to private transport shell.

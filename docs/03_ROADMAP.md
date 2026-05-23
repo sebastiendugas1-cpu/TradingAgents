@@ -1175,3 +1175,25 @@ Safety:
 - No order placement.
 - No order cancellation.
 - No private account-changing permissions required.
+
+## Slice 20D — Add Private Client Transport Integration Test to Master Safety Regression Suite
+
+Status: Implemented pending validation.
+
+Goal:
+Protect the Slice 20C disabled private client-to-transport integration with the master safety regression suite.
+
+Scope:
+- Update scripts/run_execution_safety_regression_suite.py.
+- Add scripts/test_kraken_private_client_transport_integration.py to the default safety suite.
+- Update scripts/test_execution_safety_regression_suite_runner.py.
+- Validate that the master suite includes the private client transport integration test.
+
+Safety:
+- No network call.
+- No request signing.
+- No private execution endpoint call.
+- No live trading.
+- No order placement.
+- No order cancellation.
+- No private account-changing permissions required.

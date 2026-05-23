@@ -756,3 +756,14 @@ Before future signing or transport work, the system needs a tested boundary prov
 
 Result:
 The project now has a tested client-to-transport integration with no network calls, no private endpoint calls, and no live trading.
+
+## Slice 20D Decision — Protect Private Client Transport Integration in Master Regression Suite
+
+Decision:
+Add the disabled private client transport integration test to the master safety regression suite.
+
+Reason:
+Slice 20C connected the private client boundary to the private transport boundary. That route must be protected before future transport, signing, or private request work continues.
+
+Result:
+The project now verifies the disabled private client transport integration during full safety regression.
