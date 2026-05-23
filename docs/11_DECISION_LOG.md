@@ -525,3 +525,14 @@ The project now has many linked safety layers. Before moving closer to live exec
 
 Result:
 The project can run a single safety regression suite and get a safe PASS/FAIL summary.
+
+## Slice 17A Decision — Add Execution Adapter Interface Before Live Implementation
+
+Decision:
+Add an execution adapter interface before implementing any real exchange execution adapter.
+
+Reason:
+The manual review and audit pipeline now exists. The next safe architectural step is to define the adapter boundary so future live execution work must conform to explicit request/result/capability models.
+
+Result:
+The project has a tested mock adapter and interface without introducing live execution.

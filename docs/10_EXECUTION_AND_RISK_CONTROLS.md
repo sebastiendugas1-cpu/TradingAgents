@@ -357,3 +357,17 @@ The runner validates the recent execution safety foundation:
 - manual execution pipeline regression
 
 This gives the project one command to verify the safety foundation before future execution-adjacent work.
+
+## Slice 17A — Live Execution Adapter Interface
+
+The project now has an execution adapter interface boundary.
+
+The interface defines:
+- submit request model
+- cancel request model
+- execution result model
+- capabilities declaration
+- adapter protocol
+- mock adapter
+
+The mock adapter remains blocked and simulation-only. This slice does not add any real exchange execution call.

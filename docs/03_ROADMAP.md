@@ -722,3 +722,26 @@ Safety:
 - No order placement.
 - No order cancellation.
 - No private account-changing permissions required.
+
+## Slice 17A — Live Execution Adapter Interface
+
+Status: Implemented pending validation.
+
+Goal:
+Define the abstract interface boundary for future execution adapters.
+
+Scope:
+- Create 	radingagents/execution/execution_adapter.py.
+- Create scripts/test_execution_adapter_interface.py.
+- Define submit/cancel request models.
+- Define execution result model.
+- Define adapter capabilities model.
+- Define execution adapter protocol.
+- Add a mock adapter for validation.
+
+Safety:
+- No private execution endpoint call.
+- No live trading.
+- No order placement.
+- No order cancellation.
+- No private account-changing permissions required.
