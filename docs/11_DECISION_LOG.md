@@ -102,3 +102,19 @@ Key points:
 - Cache has stale-data detection.
 - Cache can be cleared manually.
 - No private API data, balances, orders, or execution are included.
+
+## 2026-05-22 — Slice 6 TradingView Plan
+
+Decision:
+
+TradingView will be treated as a signal and alert input layer, not an execution platform.
+
+Rules:
+
+- First implementation must be documentation only.
+- First code receiver must be logging-only.
+- Alerts must use validated JSON payloads.
+- Alerts must include a secret token.
+- Alerts must never include API keys or credentials.
+- TradingView alerts must not place Kraken orders in early slices.
+- Paper trading and manual-confirmation mode must exist before any TradingView signal can contribute to live trading.

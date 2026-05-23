@@ -1,4 +1,33 @@
-﻿# TradingView Integration Plan
+# ============================ Slice 6 - TradingView Integration Plan ============================
+# Purpose:
+# Updates TradingView documentation and decision log for a safe, logging-first integration plan.
+#
+# Run from:
+# D:\Trading\TradingAgents
+#
+# Command:
+# powershell -ExecutionPolicy Bypass -File .\scripts\create_slice_06_tradingview_plan.ps1
+
+$ErrorActionPreference = "Stop"
+
+$ProjectRoot = "D:\Trading\TradingAgents"
+$DocsPath = Join-Path $ProjectRoot "docs"
+
+Set-Location $ProjectRoot
+New-Item -ItemType Directory -Force -Path $DocsPath | Out-Null
+
+function Write-DocFile {
+    param(
+        [string]$FileName,
+        [string]$Content
+    )
+
+    $FullPath = Join-Path $DocsPath $FileName
+    Set-Content -Path $FullPath -Value $Content -Encoding UTF8
+}
+
+Write-DocFile "06_TRADINGVIEW_PLAN.md" @'
+# TradingView Integration Plan
 
 ## Purpose
 
@@ -215,3 +244,46 @@ It must not call Kraken order endpoints.
 It must not place simulated orders until the paper-trading slice exists.
 
 It must not place live orders until the restricted live trading phase is explicitly approved.
+'@
+
+$DecisionLogPath = Join-Path $DocsPath "11_DECISION_LOG.md"
+$DecisionLog = Get-Content $DecisionLogPath -Raw
+$Entry = @'
+
+## 2026-05-22 — Slice 6 TradingView Plan
+
+Decision:
+
+TradingView will be treated as a signal and alert input layer, not an execution platform.
+
+Rules:
+
+- First implementation must be documentation only.
+- First code receiver must be logging-only.
+- Alerts must use validated JSON payloads.
+- Alerts must include a secret token.
+- Alerts must never include API keys or credentials.
+- TradingView alerts must not place Kraken orders in early slices.
+- Paper trading and manual-confirmation mode must exist before any TradingView signal can contribute to live trading.
+'@
+
+if ($DecisionLog -notmatch "Slice 6 TradingView Plan") {
+    Add-Content -Path $DecisionLogPath -Value $Entry -Encoding UTF8
+}
+
+$RoadmapPath = Join-Path $DocsPath "03_ROADMAP.md"
+$Roadmap = Get-Content $RoadmapPath -Raw
+$Roadmap = $Roadmap.Replace("## Slice 6 — TradingView Integration Plan`r`n`r`nGoal:`r`n`r`nDocument how TradingView alerts will enter the system.", "## Slice 6 — TradingView Integration Plan`r`n`r`nStatus: In progress.`r`n`r`nGoal:`r`n`r`nDocument how TradingView alerts will enter the system safely before any webhook code exists.")
+$Roadmap = $Roadmap.Replace("## Slice 7 — TradingView Webhook Receiver", "## Slice 7 — TradingView Webhook Receiver")
+Set-Content -Path $RoadmapPath -Value $Roadmap -Encoding UTF8
+
+Write-Host "=== SLICE 6 TRADINGVIEW DOCS UPDATED ==="
+Get-Item (Join-Path $DocsPath "06_TRADINGVIEW_PLAN.md"), (Join-Path $DocsPath "11_DECISION_LOG.md"), (Join-Path $DocsPath "03_ROADMAP.md") | Select-Object Name, Length, LastWriteTime
+
+Write-Host "`n=== CURRENT BRANCH ==="
+git branch --show-current
+
+Write-Host "`n=== GIT STATUS ==="
+git status --short
+
+Write-Host "`nSlice 6 script completed."
