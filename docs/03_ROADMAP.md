@@ -873,3 +873,26 @@ Safety:
 - No order placement.
 - No order cancellation.
 - No private account-changing permissions required.
+
+## Slice 18A — Kraken Private Order Request Translator, No Endpoint Call
+
+Status: Implemented pending validation.
+
+Goal:
+Translate safe manual execution commands into Kraken-style order payloads for review only.
+
+Scope:
+- Create 	radingagents/execution/kraken_private_order_request_translator.py.
+- Create scripts/test_kraken_private_order_request_translator.py.
+- Translate ManualExecutionCommand to a Kraken-style review payload.
+- Translate SubmitOrderRequest to a Kraken-style review payload.
+- Validate pair/side/order type/volume/price.
+- Force payloads to alidate=true.
+- Validate reports are safe to log.
+
+Safety:
+- No private execution endpoint call.
+- No live trading.
+- No order placement.
+- No order cancellation.
+- No private account-changing permissions required.

@@ -602,3 +602,14 @@ Slice 17F added the first Kraken live adapter structure. The master suite must p
 
 Result:
 The project now verifies the disabled Kraken live adapter skeleton during full safety regression.
+
+## Slice 18A Decision — Translate Future Kraken Payloads Before Endpoint Work
+
+Decision:
+Add a Kraken-style private order request translator before any future private endpoint implementation.
+
+Reason:
+Before any future live-capable code can be considered, the exact order payload shape must be reviewed and tested without calling Kraken.
+
+Result:
+The project can now generate safe review-only Kraken-style order payloads from command/request objects.
