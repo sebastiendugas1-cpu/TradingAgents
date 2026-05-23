@@ -442,3 +442,20 @@ Result:
 Slice 15C integrates the manual live order simulation package with the execution audit log while still blocking all live execution behavior.
 
 This slice intentionally does not add private execution endpoint calls, funding behavior, withdrawal behavior, or automatic live order functionality.
+
+## Slice 15D Decision — Manual Execution Requires a Formal Command Model
+
+Decision:
+Before adding any future live execution path, the project must have a formal manual execution command model.
+
+Reason:
+The project now has simulation packages and execution audit logs. A future live path should not directly consume raw order dictionaries. It should consume a validated command object that is linked to a simulation package and audit record.
+
+Result:
+Slice 15D introduces a non-executable command model with strict validation and safe reporting.
+
+Safety outcome:
+- The command model cannot place orders.
+- The command model cannot cancel orders.
+- The command model does not call private execution endpoints.
+- The command model does not require trading, funding, or withdrawal permissions.

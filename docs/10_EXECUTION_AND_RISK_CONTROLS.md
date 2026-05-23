@@ -240,3 +240,35 @@ Current restrictions:
 - No trading API permission requirement.
 
 Audit records are local-only and written to ignored output locations unless a test supplies a temporary path.
+
+## Slice 15D — Manual Execution Command Model
+
+Slice 15D adds a non-executable command model for future manual live execution.
+
+The command model links together:
+- a command ID
+- a simulation package ID
+- an execution audit record ID
+- pair
+- side
+- order type
+- volume
+- limit price
+- command status
+- reasons
+- safe metadata
+
+Command statuses:
+- `draft`
+- `blocked`
+- `ready_for_review`
+- `approved_for_future_execution`
+
+Important safety behavior:
+- A command object cannot execute anything.
+- Even an `approved_for_future_execution` command remains non-executable in this slice.
+- Reports are safe to log.
+- Sensitive-looking metadata is redacted.
+- Funding, withdrawal, and transfer terms are rejected from command reason text.
+
+This slice does not add private execution endpoint calls and does not require trading permissions.

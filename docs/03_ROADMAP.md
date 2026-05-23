@@ -555,3 +555,40 @@ Validation:
 - Confirms invalid order input cannot become a valid audit record.
 - Confirms no secrets are printed.
 - Confirms no private execution endpoint names are introduced.
+
+## Slice 15D — Manual Execution Command Model
+
+Status: Implemented pending validation.
+
+Goal:
+Create a formal non-executable command object for a future manually approved live execution path.
+
+Scope:
+- Adds a manual execution command model.
+- Links command records to simulation package IDs.
+- Links command records to execution audit IDs.
+- Validates pair, side, order type, volume, limit price, status, and reason text.
+- Provides safe-to-log command reports.
+- Keeps commands non-executable by design.
+
+Still forbidden:
+- No Kraken AddOrder call.
+- No Kraken CancelOrder call.
+- No live trading.
+- No funding.
+- No withdrawals.
+- No trading API permission requirement.
+
+Files introduced:
+- `tradingagents/execution/manual_execution_command.py`
+- `scripts/test_manual_execution_command_model.py`
+- `scripts/create_slice_15d_manual_execution_command_model.ps1`
+
+Validation:
+- Confirms valid command creation.
+- Confirms command reports are safe to log.
+- Confirms commands cannot execute.
+- Confirms blocked command state.
+- Confirms invalid command fields are rejected.
+- Confirms sensitive-looking metadata is redacted.
+- Confirms no private execution endpoint call was introduced.
