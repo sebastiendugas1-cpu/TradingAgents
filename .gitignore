@@ -240,3 +240,6 @@ reports/
 
 # Local generated backtest outputs
 .backtests/
+
+# Local paper trading outputs
+.paper-trading/

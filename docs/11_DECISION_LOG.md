@@ -178,3 +178,18 @@ Key points:
 - It supports long and short simulations.
 - It uses candle data and structured simulated signals.
 - Outputs include simulated trades, P/L, win rate, drawdown, and profit factor.
+
+## 2026-05-22 — Slice 11 Paper Trading Engine
+
+Decision:
+
+Added a safe paper-trading engine.
+
+Key points:
+
+- Simulation only.
+- No live trading.
+- No Kraken private API.
+- No real balances.
+- Supports paper cash, positions, fills, rejected orders, blocked orders, and reports.
+- Supports converting PAPER_TRADE scorecards into simulated paper trades.

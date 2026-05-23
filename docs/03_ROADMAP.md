@@ -142,9 +142,11 @@ Evaluate strategies against historical data.
 
 ## Slice 11 — Paper Trading Engine
 
+Status: Complete.
+
 Goal:
 
-Simulate live trading without real money.
+Simulate live trading without real money using a safe paper account, fake balances, simulated fills, rejected orders, blocked orders, and P/L reporting.
 
 ## Slice 12 — Kraken Read-Only Account Integration
 
@@ -169,6 +171,7 @@ Enable limited real order execution with strict risk controls.
 Goal:
 
 Use historical and paper-trading results to improve strategies.
+
 
 
 
