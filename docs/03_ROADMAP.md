@@ -701,3 +701,24 @@ Safety:
 - No order placement.
 - No order cancellation.
 - No private account-changing permissions required.
+
+## Slice 16B — Full Project Safety Regression Runner
+
+Status: Implemented pending validation.
+
+Goal:
+Create one master regression runner for the execution safety foundation.
+
+Scope:
+- Create scripts/run_execution_safety_regression_suite.py.
+- Create scripts/test_execution_safety_regression_suite_runner.py.
+- Run the recent execution safety validation scripts as subprocesses.
+- Produce one safe PASS/FAIL summary.
+- Support JSON output for automated review.
+
+Safety:
+- No private execution endpoint call.
+- No live trading.
+- No order placement.
+- No order cancellation.
+- No private account-changing permissions required.

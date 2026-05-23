@@ -514,3 +514,14 @@ The project now has many connected safety pieces. A single regression test is ne
 
 Result:
 Future changes can be tested against one script that validates the manual review pipeline from sample runner through audit output.
+
+## Slice 16B Decision — Add a Master Execution Safety Regression Runner
+
+Decision:
+Add one master regression runner for the execution safety foundation.
+
+Reason:
+The project now has many linked safety layers. Before moving closer to live execution adapter work, one command should verify that the full recent execution safety stack still passes.
+
+Result:
+The project can run a single safety regression suite and get a safe PASS/FAIL summary.

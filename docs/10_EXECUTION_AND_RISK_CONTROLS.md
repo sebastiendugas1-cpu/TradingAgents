@@ -337,3 +337,23 @@ The regression test checks:
 - usage guide presence
 
 This protects the safe manual-review workflow from accidental breakage in future slices.
+
+## Slice 16B — Full Project Safety Regression Runner
+
+A master safety regression runner has been added.
+
+The runner validates the recent execution safety foundation:
+- live execution safety config
+- disabled live execution client skeleton
+- permission preflight
+- readiness report
+- simulation package
+- audit log
+- command model
+- command builder
+- review CLI
+- sample runner
+- usage guide
+- manual execution pipeline regression
+
+This gives the project one command to verify the safety foundation before future execution-adjacent work.
