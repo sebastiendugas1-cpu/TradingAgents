@@ -237,3 +237,20 @@ Before calling real Kraken private endpoints, the project will validate local re
 This validator must not call Kraken and must not expose API key or secret values.
 
 The validator blocks unsafe flags such as trading, withdrawals, and funding.
+
+## 2026-05-22 — Slice 12C-2: Real Kraken Read-Only Client
+
+Decision:
+
+Added a real Kraken private read-only client.
+
+Safety boundaries:
+
+- Balance reading only.
+- Open-order reading only.
+- Trade-history reading only.
+- No order placement.
+- No cancellation.
+- No withdrawal.
+- No funding operation.
+- No secrets printed in validation.

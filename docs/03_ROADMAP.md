@@ -227,3 +227,31 @@ Commit message:
 ```text
 Add Kraken read-only environment validator
 ```
+
+## Slice 12C-2 — Real Kraken Read-Only Client
+
+Status: Complete when validation passes.
+
+Goal:
+
+Read balances, open orders, and recent trade history from Kraken using read-only credentials.
+
+Forbidden:
+
+- Place orders.
+- Cancel orders.
+- Withdraw funds.
+- Funding operations.
+- Trading permissions.
+
+Validation command:
+
+```powershell
+D:; cd D:\Trading\TradingAgents; conda activate tradingagents; python .\scripts\test_kraken_real_readonly_client.py
+```
+
+Commit message:
+
+```text
+Add Kraken real read-only client
+```
