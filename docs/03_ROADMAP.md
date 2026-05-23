@@ -981,3 +981,23 @@ Safety:
 - No order placement.
 - No order cancellation.
 - No private account-changing permissions required.
+
+## Slice 18F — Add Kraken Payload Review CLI Test to Master Safety Regression Suite
+
+Status: Implemented pending validation.
+
+Goal:
+Protect the Slice 18E Kraken order payload review CLI with the master safety regression suite.
+
+Scope:
+- Update scripts/run_execution_safety_regression_suite.py.
+- Add scripts/test_kraken_order_payload_review_cli.py to the default safety suite.
+- Update scripts/test_execution_safety_regression_suite_runner.py.
+- Validate that the master safety suite includes the payload review CLI test.
+
+Safety:
+- No private execution endpoint call.
+- No live trading.
+- No order placement.
+- No order cancellation.
+- No private account-changing permissions required.

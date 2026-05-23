@@ -657,3 +657,14 @@ The operator should be able to inspect the exact Kraken-style validate=true payl
 
 Result:
 The project now has a safe human-review command for payload inspection.
+
+## Slice 18F Decision — Protect Kraken Payload Review CLI in Master Regression Suite
+
+Decision:
+Add the Kraken order payload review CLI test to the master safety regression suite.
+
+Reason:
+Slice 18E added the human-review CLI for Kraken-style validate=true payloads. The master suite must protect it before future private-client architecture is added.
+
+Result:
+The project now verifies the Kraken payload review CLI during full safety regression.

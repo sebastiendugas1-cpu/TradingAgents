@@ -491,3 +491,10 @@ The CLI:
 - prints blocked safe output
 - supports JSON mode
 - does not call Kraken
+
+## Slice 18F — Kraken Payload Review CLI Test Added to Safety Regression Suite
+
+The master execution safety regression suite now includes:
+- Kraken order payload review CLI validation
+
+This ensures future safety-suite runs protect the human-readable payload review workflow before private-client shell work begins.
