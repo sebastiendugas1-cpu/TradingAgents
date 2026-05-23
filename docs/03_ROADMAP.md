@@ -1043,3 +1043,25 @@ Safety:
 - No order placement.
 - No order cancellation.
 - No private account-changing permissions required.
+
+## Slice 19C — Private Client Shell Integration with Payload Review CLI
+
+Status: Implemented pending validation.
+
+Goal:
+Connect the Kraken payload review path to the disabled Kraken private client shell.
+
+Scope:
+- Create 	radingagents/execution/kraken_payload_review_private_client_integration.py.
+- Create scripts/test_kraken_payload_review_private_client_integration.py.
+- Build Kraken-style validate=true payload review.
+- Route payload into KrakenPrivateClientShell.submit_private_order_preview.
+- Return a blocked safe integration report.
+- Validate that no private endpoint call exists.
+
+Safety:
+- No private execution endpoint call.
+- No live trading.
+- No order placement.
+- No order cancellation.
+- No private account-changing permissions required.

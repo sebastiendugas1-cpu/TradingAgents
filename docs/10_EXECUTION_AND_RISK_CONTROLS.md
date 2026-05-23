@@ -517,3 +517,14 @@ The master execution safety regression suite now includes:
 - disabled Kraken private client shell validation
 
 This ensures future safety-suite runs protect the private client boundary before any private-client implementation work continues.
+
+## Slice 19C — Payload Review + Private Client Shell Integration
+
+The Kraken payload review path now integrates with the disabled private client shell.
+
+The integration:
+- builds a validate=true Kraken-style review payload
+- sends that payload to the private client shell preview method
+- returns a blocked safe report
+- does not call Kraken
+- does not enable execution

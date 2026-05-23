@@ -690,3 +690,14 @@ Slice 19A added the future private-client boundary. The master suite must protec
 
 Result:
 The project now verifies the disabled Kraken private client shell during full safety regression.
+
+## Slice 19C Decision — Connect Payload Review to Disabled Private Client Shell
+
+Decision:
+Connect the Kraken payload review path to the disabled private client shell.
+
+Reason:
+Before any private implementation can be considered, the review payload and private client boundary must be tested together.
+
+Result:
+The project can now route a reviewed Kraken-style payload into the disabled private client shell while remaining blocked.
