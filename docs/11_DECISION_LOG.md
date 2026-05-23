@@ -147,3 +147,19 @@ Key points:
 - Allowed recommendation statuses are WATCH, PAPER_TRADE, MANUAL_REVIEW, and BLOCKED.
 - There is intentionally no LIVE_TRADE status in this layer.
 - This layer does not place orders or call Kraken private APIs.
+
+## 2026-05-22 — Slice 9 Completed: Strategy Scoring Engine
+
+Decision:
+
+Added a safe strategy scoring engine that converts structured agent opinions into a normalized scorecard.
+
+Key points:
+
+- Supports confidence scoring.
+- Supports risk scoring.
+- Supports agent score breakdown.
+- Limits output actions to watch, paper trade, manual review, or blocked.
+- Does not support live-trade execution.
+- Does not call Kraken private APIs.
+- Does not place orders.

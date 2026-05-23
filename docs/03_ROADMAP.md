@@ -126,6 +126,8 @@ Define structured outputs from specialized agents.
 
 ## Slice 9 — Strategy Scoring Engine
 
+Status: Complete.
+
 Goal:
 
 Convert agent opinions into measurable trading decisions.
@@ -165,5 +167,6 @@ Enable limited real order execution with strict risk controls.
 Goal:
 
 Use historical and paper-trading results to improve strategies.
+
 
 
