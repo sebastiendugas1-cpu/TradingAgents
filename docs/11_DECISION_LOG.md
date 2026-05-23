@@ -668,3 +668,14 @@ Slice 18E added the human-review CLI for Kraken-style validate=true payloads. Th
 
 Result:
 The project now verifies the Kraken payload review CLI during full safety regression.
+
+## Slice 19A Decision — Add Disabled Private Client Shell Before Any Private Implementation
+
+Decision:
+Add a disabled Kraken private client shell before any future private endpoint implementation.
+
+Reason:
+The system needs a safe private-client boundary before any endpoint-specific implementation can be considered.
+
+Result:
+The project now has a tested disabled private client shell with blocked preview methods and no endpoint calls.

@@ -1001,3 +1001,25 @@ Safety:
 - No order placement.
 - No order cancellation.
 - No private account-changing permissions required.
+
+## Slice 19A — Disabled Kraken Private Client Shell
+
+Status: Implemented pending validation.
+
+Goal:
+Create a disabled private client shell for future Kraken private operations.
+
+Scope:
+- Create 	radingagents/execution/kraken_private_client_shell.py.
+- Create scripts/test_kraken_private_client_shell.py.
+- Define safe config and result models.
+- Define blocked submit preview, cancel preview, and status preview methods.
+- Require activation policy evaluation.
+- Validate that no private endpoint call exists.
+
+Safety:
+- No private execution endpoint call.
+- No live trading.
+- No order placement.
+- No order cancellation.
+- No private account-changing permissions required.

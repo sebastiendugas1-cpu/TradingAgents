@@ -498,3 +498,15 @@ The master execution safety regression suite now includes:
 - Kraken order payload review CLI validation
 
 This ensures future safety-suite runs protect the human-readable payload review workflow before private-client shell work begins.
+
+## Slice 19A — Disabled Kraken Private Client Shell
+
+A disabled Kraken private client shell has been added.
+
+The shell:
+- has no network transport
+- has no private endpoint implementation
+- blocks submit/cancel/status preview methods
+- requires activation policy evaluation
+- reports no private endpoint calls
+- does not enable execution
