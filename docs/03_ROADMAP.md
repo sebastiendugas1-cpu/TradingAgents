@@ -1197,3 +1197,31 @@ Safety:
 - No order placement.
 - No order cancellation.
 - No private account-changing permissions required.
+
+## Slice 21A — Disabled Kraken Private Request Signer Shell
+
+Status: Implemented pending validation.
+
+Goal:
+Create a disabled private request signer shell for future Kraken private request signing.
+
+Scope:
+- Create 	radingagents/execution/kraken_private_request_signer_shell.py.
+- Create scripts/test_kraken_private_request_signer_shell.py.
+- Define safe config, signing preview request, and result models.
+- Define a blocked signing preview method.
+- Require activation policy evaluation.
+- Validate that no secret, nonce, signature, network, or private endpoint behavior exists.
+
+Safety:
+- No API secret usage.
+- No environment secret reading.
+- No nonce generation.
+- No signature generation.
+- No HMAC or digest signing implementation.
+- No network call.
+- No private execution endpoint call.
+- No live trading.
+- No order placement.
+- No order cancellation.
+- No private account-changing permissions required.

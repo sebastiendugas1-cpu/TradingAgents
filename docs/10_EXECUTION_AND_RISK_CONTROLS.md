@@ -585,3 +585,16 @@ The master execution safety regression suite now includes:
 - disabled private client transport integration validation
 
 This ensures future safety-suite runs protect the boundary from private client shell to private transport shell.
+
+## Slice 21A — Disabled Kraken Private Request Signer Shell
+
+A disabled Kraken private request signer shell has been added.
+
+The shell:
+- has no API secret
+- reads no environment secrets
+- has no nonce generator
+- has no HMAC or digest signing implementation
+- blocks signing previews
+- requires activation policy evaluation
+- reports no secret, nonce, signature, network, or private endpoint behavior

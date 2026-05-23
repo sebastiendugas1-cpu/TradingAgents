@@ -767,3 +767,14 @@ Slice 20C connected the private client boundary to the private transport boundar
 
 Result:
 The project now verifies the disabled private client transport integration during full safety regression.
+
+## Slice 21A Decision — Add Disabled Private Request Signer Shell Before Any Signing Code
+
+Decision:
+Add a disabled Kraken private request signer shell before any future request signing implementation.
+
+Reason:
+The system needs a safe signer boundary before any code that could use secrets, generate nonces, or create signatures can be considered.
+
+Result:
+The project now has a tested disabled private signer shell with blocked preview methods and no signing behavior.
