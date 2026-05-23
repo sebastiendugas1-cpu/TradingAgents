@@ -510,3 +510,10 @@ The shell:
 - requires activation policy evaluation
 - reports no private endpoint calls
 - does not enable execution
+
+## Slice 19B — Kraken Private Client Shell Test Added to Safety Regression Suite
+
+The master execution safety regression suite now includes:
+- disabled Kraken private client shell validation
+
+This ensures future safety-suite runs protect the private client boundary before any private-client implementation work continues.

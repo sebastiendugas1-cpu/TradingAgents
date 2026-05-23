@@ -1023,3 +1023,23 @@ Safety:
 - No order placement.
 - No order cancellation.
 - No private account-changing permissions required.
+
+## Slice 19B — Add Kraken Private Client Shell Test to Master Safety Regression Suite
+
+Status: Implemented pending validation.
+
+Goal:
+Protect the Slice 19A disabled Kraken private client shell with the master safety regression suite.
+
+Scope:
+- Update scripts/run_execution_safety_regression_suite.py.
+- Add scripts/test_kraken_private_client_shell.py to the default safety suite.
+- Update scripts/test_execution_safety_regression_suite_runner.py.
+- Validate that the master safety suite includes the private client shell test.
+
+Safety:
+- No private execution endpoint call.
+- No live trading.
+- No order placement.
+- No order cancellation.
+- No private account-changing permissions required.

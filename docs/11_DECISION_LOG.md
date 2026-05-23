@@ -679,3 +679,14 @@ The system needs a safe private-client boundary before any endpoint-specific imp
 
 Result:
 The project now has a tested disabled private client shell with blocked preview methods and no endpoint calls.
+
+## Slice 19B Decision — Protect Kraken Private Client Shell in Master Regression Suite
+
+Decision:
+Add the disabled Kraken private client shell test to the master safety regression suite.
+
+Reason:
+Slice 19A added the future private-client boundary. The master suite must protect it before future work builds on top of it.
+
+Result:
+The project now verifies the disabled Kraken private client shell during full safety regression.
