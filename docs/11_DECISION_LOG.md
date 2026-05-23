@@ -254,3 +254,18 @@ Safety boundaries:
 - No withdrawal.
 - No funding operation.
 - No secrets printed in validation.
+
+## 2026-05-22 — Manual-Confirmation Trading Plan
+
+Decision:
+
+The project will require a manual-confirmation layer before any future live trading execution.
+
+Key points:
+
+- The system may propose trades, but cannot execute without explicit user approval.
+- Approval must require deliberate confirmation.
+- Every proposal must include risk, confidence, quantity, estimated value, and reason summary.
+- Every proposal and decision must be logged.
+- Manual-confirmation must be validated before restricted automation.
+- This slice is documentation-only and does not add live trading.

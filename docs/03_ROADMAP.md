@@ -160,6 +160,13 @@ Goal:
 
 System proposes trades, user approves manually.
 
+Split into:
+
+- Slice 13A — Manual-confirmation trading plan.
+- Slice 13B — Trade proposal model.
+- Slice 13C — Manual approval workflow.
+- Slice 13D — Execution bridge, only after explicit approval and safety validation.
+
 ## Slice 14 — Restricted Live Trading
 
 Goal:
@@ -254,4 +261,31 @@ Commit message:
 
 ```text
 Add Kraken real read-only client
+```
+
+## Slice 13A — Manual-Confirmation Trading Plan
+
+Status: Complete.
+
+Goal:
+
+Define the manual-confirmation workflow before any live execution code exists.
+
+Deliverables:
+
+- `docs/13_MANUAL_CONFIRMATION_TRADING_PLAN.md`
+
+Rules:
+
+- Planning only.
+- No order placement.
+- No Kraken trading permission.
+- No cancellation.
+- No withdrawals.
+- No funding actions.
+
+Commit message:
+
+```text
+Add manual-confirmation trading plan
 ```

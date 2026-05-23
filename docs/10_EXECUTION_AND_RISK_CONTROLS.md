@@ -64,3 +64,25 @@ Log should include:
 - Risk decision.
 - Execution mode.
 - Result.
+
+## Manual-Confirmation Requirements
+
+Before any future live order execution can exist, the system must implement manual-confirmation controls.
+
+Required behavior:
+
+- Create a trade proposal.
+- Show the full risk summary.
+- Require explicit user approval.
+- Reject vague approval words.
+- Log every proposed, blocked, rejected, approved, simulated, or executed trade.
+- Never execute without explicit approval.
+- Never store secrets in logs.
+
+A valid approval should require a deliberate confirmation phrase such as:
+
+```text
+APPROVE
+```
+
+Manual-confirmation must be validated before restricted automation is considered.
