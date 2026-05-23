@@ -831,3 +831,25 @@ Safety:
 - No order placement.
 - No order cancellation.
 - No private account-changing permissions required.
+
+## Slice 17F — Kraken Live Adapter Skeleton Behind Activation Policy
+
+Status: Implemented pending validation.
+
+Goal:
+Create a disabled Kraken live adapter skeleton behind the execution adapter interface and activation policy.
+
+Scope:
+- Create 	radingagents/execution/kraken_live_adapter_skeleton.py.
+- Create scripts/test_kraken_live_adapter_skeleton.py.
+- Declare skeleton capabilities as disabled/future-live.
+- Require activation policy evaluation.
+- Block submit/cancel paths by default.
+- Validate no private endpoint call exists.
+
+Safety:
+- No private execution endpoint call.
+- No live trading.
+- No order placement.
+- No order cancellation.
+- No private account-changing permissions required.

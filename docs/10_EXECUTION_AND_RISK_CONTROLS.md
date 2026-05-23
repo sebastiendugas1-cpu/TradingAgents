@@ -420,3 +420,17 @@ The master execution safety regression suite now includes:
 - live execution activation policy validation
 
 This ensures future safety-suite runs protect the policy gate before live-capable adapter work continues.
+
+## Slice 17F — Kraken Live Adapter Skeleton Behind Activation Policy
+
+A disabled Kraken live adapter skeleton has been added behind:
+- the execution adapter interface
+- the activation policy
+- default blocking behavior
+
+The skeleton:
+- declares future-live capabilities
+- remains disabled
+- blocks submit/cancel requests
+- reports no private endpoint calls
+- includes no real exchange execution call

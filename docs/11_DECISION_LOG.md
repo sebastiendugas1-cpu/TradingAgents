@@ -580,3 +580,14 @@ Slice 17D added the strict policy gate before future live-capable adapter work. 
 
 Result:
 The project now verifies the activation policy during full safety regression.
+
+## Slice 17F Decision — Add Disabled Kraken Adapter Skeleton Behind Policy
+
+Decision:
+Add a Kraken live adapter skeleton, but keep it disabled and blocked behind activation policy.
+
+Reason:
+The project needs a future-live adapter boundary before any real exchange execution implementation can be considered.
+
+Result:
+The project has a tested Kraken adapter skeleton that remains non-executing and policy-blocked.
