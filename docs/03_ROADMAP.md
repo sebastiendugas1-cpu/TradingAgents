@@ -959,3 +959,25 @@ Safety:
 - No order placement.
 - No order cancellation.
 - No private account-changing permissions required.
+
+## Slice 18E — Kraken Order Payload Review CLI
+
+Status: Implemented pending validation.
+
+Goal:
+Add a human-readable CLI for reviewing Kraken-style validate=true order payloads.
+
+Scope:
+- Create scripts/run_kraken_order_payload_review.py.
+- Create scripts/test_kraken_order_payload_review_cli.py.
+- Build command candidates from CLI arguments.
+- Translate to Kraken-style validate=true payload.
+- Route through disabled Kraken adapter skeleton.
+- Print text or JSON safe review output.
+
+Safety:
+- No private execution endpoint call.
+- No live trading.
+- No order placement.
+- No order cancellation.
+- No private account-changing permissions required.

@@ -479,3 +479,15 @@ The master execution safety regression suite now includes:
 - Kraken order translator adapter integration validation
 
 This ensures future safety-suite runs protect the validate=true payload translation and disabled adapter routing path.
+
+## Slice 18E — Kraken Order Payload Review CLI
+
+A CLI has been added to review Kraken-style validate=true payloads.
+
+The CLI:
+- accepts pair, side, order type, volume, and optional limit price
+- creates a review-only Kraken-style payload
+- routes through the disabled adapter skeleton
+- prints blocked safe output
+- supports JSON mode
+- does not call Kraken

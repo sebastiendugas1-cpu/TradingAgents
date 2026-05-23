@@ -646,3 +646,14 @@ Slice 18C connected the Kraken-style payload translator to the disabled Kraken a
 
 Result:
 The project now verifies the Kraken translator adapter integration during full safety regression.
+
+## Slice 18E Decision — Add Human Review CLI Before Private Client Work
+
+Decision:
+Add a payload review CLI before creating any private client shell.
+
+Reason:
+The operator should be able to inspect the exact Kraken-style validate=true payload and blocked adapter result before future private-client architecture is added.
+
+Result:
+The project now has a safe human-review command for payload inspection.
