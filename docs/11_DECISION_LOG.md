@@ -591,3 +591,14 @@ The project needs a future-live adapter boundary before any real exchange execut
 
 Result:
 The project has a tested Kraken adapter skeleton that remains non-executing and policy-blocked.
+
+## Slice 17G Decision — Protect Kraken Adapter Skeleton in Master Regression Suite
+
+Decision:
+Add the Kraken live adapter skeleton test to the master safety regression suite.
+
+Reason:
+Slice 17F added the first Kraken live adapter structure. The master suite must protect it before future work builds on top of it.
+
+Result:
+The project now verifies the disabled Kraken live adapter skeleton during full safety regression.

@@ -434,3 +434,10 @@ The skeleton:
 - blocks submit/cancel requests
 - reports no private endpoint calls
 - includes no real exchange execution call
+
+## Slice 17G — Kraken Adapter Skeleton Test Added to Safety Regression Suite
+
+The master execution safety regression suite now includes:
+- disabled Kraken live adapter skeleton validation
+
+This ensures future safety-suite runs protect the Kraken adapter skeleton before more live-adjacent work continues.
