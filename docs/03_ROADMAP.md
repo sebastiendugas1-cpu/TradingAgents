@@ -1065,3 +1065,23 @@ Safety:
 - No order placement.
 - No order cancellation.
 - No private account-changing permissions required.
+
+## Slice 19D — Add Payload Review Private Client Integration Test to Master Safety Regression Suite
+
+Status: Implemented pending validation.
+
+Goal:
+Protect the Slice 19C payload review private client integration with the master safety regression suite.
+
+Scope:
+- Update scripts/run_execution_safety_regression_suite.py.
+- Add scripts/test_kraken_payload_review_private_client_integration.py to the default safety suite.
+- Update scripts/test_execution_safety_regression_suite_runner.py.
+- Validate that the master safety suite includes the payload review private client integration test.
+
+Safety:
+- No private execution endpoint call.
+- No live trading.
+- No order placement.
+- No order cancellation.
+- No private account-changing permissions required.

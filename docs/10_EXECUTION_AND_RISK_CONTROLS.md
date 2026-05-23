@@ -528,3 +528,10 @@ The integration:
 - returns a blocked safe report
 - does not call Kraken
 - does not enable execution
+
+## Slice 19D — Payload Review Private Client Integration Test Added to Safety Regression Suite
+
+The master execution safety regression suite now includes:
+- payload review private client integration validation
+
+This ensures future safety-suite runs protect the full review-to-private-client boundary before any private-client implementation work continues.

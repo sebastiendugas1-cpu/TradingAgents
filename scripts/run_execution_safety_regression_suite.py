@@ -45,6 +45,7 @@ DEFAULT_SAFETY_TESTS = (
     "scripts/test_kraken_order_translation_adapter_integration.py",
     "scripts/test_kraken_order_payload_review_cli.py",
     "scripts/test_kraken_private_client_shell.py",
+    "scripts/test_kraken_payload_review_private_client_integration.py",
 )
 
 
@@ -234,6 +235,7 @@ def run_cli(argv: list[str] | None = None) -> int:
 
 if __name__ == "__main__":
     raise SystemExit(run_cli())
+
 
 
 

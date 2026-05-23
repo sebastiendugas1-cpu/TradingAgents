@@ -701,3 +701,14 @@ Before any private implementation can be considered, the review payload and priv
 
 Result:
 The project can now route a reviewed Kraken-style payload into the disabled private client shell while remaining blocked.
+
+## Slice 19D Decision — Protect Payload Review Private Client Integration in Master Regression Suite
+
+Decision:
+Add the payload review private client integration test to the master safety regression suite.
+
+Reason:
+Slice 19C connected the reviewed Kraken-style payload path to the disabled private client shell. The master suite must protect that integration before future work builds on top of it.
+
+Result:
+The project now verifies the payload review private client integration during full safety regression.
