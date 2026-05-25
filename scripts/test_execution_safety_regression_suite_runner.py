@@ -46,12 +46,18 @@ def test_runner_file_exists() -> None:
 
 
 def test_default_safety_tests_exist() -> None:
-    assert len(DEFAULT_SAFETY_TESTS) >= 24
+    assert len(DEFAULT_SAFETY_TESTS) >= 25
 
     for script in DEFAULT_SAFETY_TESTS:
         assert Path(script).exists(), f"Missing regression test script: {script}"
 
     print("[OK] all default safety test scripts exist")
+
+
+def test_default_safety_tests_include_private_request_signer_shell_test() -> None:
+    assert "scripts/test_kraken_private_request_signer_shell.py" in DEFAULT_SAFETY_TESTS
+
+    print("[OK] default safety tests include private request signer shell test")
 
 
 def test_regression_suite_runs_subset_successfully() -> None:
@@ -138,6 +144,8 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+
 
 
 

@@ -598,3 +598,9 @@ The shell:
 - blocks signing previews
 - requires activation policy evaluation
 - reports no secret, nonce, signature, network, or private endpoint behavior
+
+## Slice 21B - Disabled Private Request Signer Shell Test Added to Safety Regression Suite
+
+The master execution safety regression suite now includes disabled Kraken private request signer shell validation.
+
+This protects the signer boundary and confirms no secret, nonce, signature, network, or private endpoint behavior has been introduced.

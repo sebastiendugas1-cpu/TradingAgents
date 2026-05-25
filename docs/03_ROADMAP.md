@@ -1225,3 +1225,23 @@ Safety:
 - No order placement.
 - No order cancellation.
 - No private account-changing permissions required.
+
+## Slice 21B - Add Disabled Kraken Private Request Signer Shell Test to Master Safety Regression Suite
+
+Status: Implemented pending validation.
+
+Goal:
+Protect the Slice 21A disabled Kraken private request signer shell with the master safety regression suite.
+
+Safety:
+- No API secret usage.
+- No environment secret reading.
+- No nonce generation.
+- No signature generation.
+- No HMAC or digest signing implementation.
+- No network call.
+- No private execution endpoint call.
+- No live trading.
+- No order placement.
+- No order cancellation.
+- No private account-changing permissions required.

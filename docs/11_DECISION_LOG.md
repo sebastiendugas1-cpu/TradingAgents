@@ -778,3 +778,14 @@ The system needs a safe signer boundary before any code that could use secrets, 
 
 Result:
 The project now has a tested disabled private signer shell with blocked preview methods and no signing behavior.
+
+## Slice 21B Decision - Protect Disabled Private Request Signer Shell in Master Regression Suite
+
+Decision:
+Add the disabled Kraken private request signer shell test to the master safety regression suite.
+
+Reason:
+Slice 21A created the signer boundary. That boundary must be protected before future request signing or private transport work continues.
+
+Result:
+The project now verifies the disabled private request signer shell during full safety regression.
