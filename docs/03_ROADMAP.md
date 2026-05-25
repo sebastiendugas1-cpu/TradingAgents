@@ -1272,3 +1272,22 @@ Safety:
 - No order placement.
 - No order cancellation.
 - No private account-changing permissions required.
+
+### Slice 21D - Add Private Request Signer Transport Integration to Safety Regression Suite
+
+Validated target:
+- Add `scripts/test_kraken_private_signer_transport_integration.py` to the master execution safety regression suite.
+- Increase the expected suite coverage from 25 tests to 26 tests.
+- Preserve the current disabled/non-executable execution posture.
+
+Safety posture:
+- No real order placement.
+- No real order cancellation.
+- No private endpoint calls.
+- No network calls in private execution code.
+- No API secret usage.
+- No environment secret reading.
+- No nonce generation.
+- No HMAC/hashlib/base64 signing implementation.
+- No live trading.
+- No private account-changing permission requirement.

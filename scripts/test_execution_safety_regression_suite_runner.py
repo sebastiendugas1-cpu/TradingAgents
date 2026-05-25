@@ -56,6 +56,7 @@ def test_default_safety_tests_exist() -> None:
 
 def test_default_safety_tests_include_private_request_signer_shell_test() -> None:
     assert "scripts/test_kraken_private_request_signer_shell.py" in DEFAULT_SAFETY_TESTS
+    "scripts/test_kraken_private_signer_transport_integration.py"
 
     print("[OK] default safety tests include private request signer shell test")
 

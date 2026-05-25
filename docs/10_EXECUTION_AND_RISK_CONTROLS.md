@@ -620,3 +620,9 @@ The integration:
 - confirms no request is signed
 - confirms no request is sent
 - confirms no network/private endpoint call is made
+
+### Slice 21D control - signer transport integration suite registration
+
+The private request signer transport integration test is now part of the master execution safety regression suite.
+
+This slice is a suite-registration-only change. It does not activate private execution, does not create signatures, does not read secrets, does not generate nonces, and does not introduce private endpoint or network calls.

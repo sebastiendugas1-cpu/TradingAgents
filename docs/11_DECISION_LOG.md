@@ -800,3 +800,17 @@ Before future signing or private request work, the system needs a tested boundar
 
 Result:
 The project now has a tested signer-to-transport integration with no secret material, no nonce generation, no signature generation, no network calls, no private endpoint calls, and no live trading.
+
+### Slice 21D decision - register signer transport integration in master suite
+
+Decision:
+- Register `scripts/test_kraken_private_signer_transport_integration.py` in the master execution safety regression suite.
+
+Reason:
+- Slice 21C validated the disabled signer-to-transport path independently.
+- The protection now belongs in the master regression gate so future changes cannot bypass it.
+
+Expected result:
+- Execution Safety Regression Suite increases from 25 tests to 26 tests.
+- All tests remain passing.
+- Safety guards continue to confirm that no private execution endpoint call or account-changing permission requirement was introduced.
