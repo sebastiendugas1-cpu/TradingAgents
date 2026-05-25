@@ -1291,3 +1291,23 @@ Safety posture:
 - No HMAC/hashlib/base64 signing implementation.
 - No live trading.
 - No private account-changing permission requirement.
+
+### Slice 22A - Make Execution Safety Scripts Repo-Root Import Safe
+
+Validated target:
+- Make the master execution safety regression runner repo-root import safe.
+- Make the regression runner validation test repo-root import safe.
+- Reduce dependence on manually setting `PYTHONPATH` before validation.
+- Preserve the current 26-test master safety suite.
+
+Safety posture:
+- No real order placement.
+- No real order cancellation.
+- No private endpoint calls.
+- No network calls in private execution code.
+- No API secret usage.
+- No environment secret reading.
+- No nonce generation.
+- No HMAC/hashlib/base64 signing implementation.
+- No live trading.
+- No private account-changing permission requirement.

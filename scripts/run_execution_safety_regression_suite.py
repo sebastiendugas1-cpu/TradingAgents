@@ -1,8 +1,6 @@
-﻿"""
+"""
 Slice 16B full execution safety regression suite runner.
-
 This script runs the key safety validation scripts for recent execution slices.
-
 It does not:
 - place orders
 - cancel orders
@@ -10,19 +8,23 @@ It does not:
 - enable live trading
 - require private account-changing permissions
 """
-
 from __future__ import annotations
+
+# Ensure this script can import the local package when it is run directly from
+# the repository root or through a subprocess without PYTHONPATH preconfigured.
+from pathlib import Path
+import sys
+
+REPO_ROOT = Path(__file__).resolve().parents[1]
+if str(REPO_ROOT) not in sys.path:
+    sys.path.insert(0, str(REPO_ROOT))
 
 import argparse
 import json
 import subprocess
-import sys
 from dataclasses import dataclass
-from pathlib import Path
 from time import perf_counter
 from typing import Any
-
-
 DEFAULT_SAFETY_TESTS = (
     "scripts/test_live_execution_safety_config.py",
     "scripts/test_kraken_live_execution_client_skeleton.py",
@@ -51,8 +53,6 @@ DEFAULT_SAFETY_TESTS = (
     "scripts/test_kraken_private_request_signer_shell.py",
     "scripts/test_kraken_private_signer_transport_integration.py",
 )
-
-
 @dataclass(frozen=True)
 class RegressionTestResult:
     script: str
@@ -61,7 +61,6 @@ class RegressionTestResult:
     elapsed_seconds: float
     stdout_tail: str
     stderr_tail: str
-
     def safe_report(self) -> dict[str, Any]:
         return {
             "script": self.script,
@@ -71,8 +70,6 @@ class RegressionTestResult:
             "stdout_tail": self.stdout_tail,
             "stderr_tail": self.stderr_tail,
         }
-
-
 @dataclass(frozen=True)
 class RegressionSuiteResult:
     suite_name: str
@@ -82,7 +79,6 @@ class RegressionSuiteResult:
     failed_tests: int
     elapsed_seconds: float
     results: tuple[RegressionTestResult, ...]
-
     def safe_report(self) -> dict[str, Any]:
         return {
             "suite_name": self.suite_name,
@@ -95,8 +91,6 @@ class RegressionSuiteResult:
             "secrets_included": False,
             "execution_endpoint_called": False,
         }
-
-
 def run_regression_suite(
     *,
     scripts: tuple[str, ...] = DEFAULT_SAFETY_TESTS,
@@ -104,16 +98,12 @@ def run_regression_suite(
 ) -> RegressionSuiteResult:
     """
     Run the execution safety regression suite.
-
     Each script is executed as a subprocess using the current Python interpreter.
     """
-
     suite_start = perf_counter()
     results: list[RegressionTestResult] = []
-
     for script in scripts:
         path = Path(script)
-
         if not path.exists():
             result = RegressionTestResult(
                 script=script,
@@ -124,12 +114,9 @@ def run_regression_suite(
                 stderr_tail=f"Missing script: {script}",
             )
             results.append(result)
-
             if stop_on_failure:
                 break
-
             continue
-
         start = perf_counter()
         completed = subprocess.run(
             [sys.executable, str(path)],
@@ -137,7 +124,6 @@ def run_regression_suite(
             text=True,
         )
         elapsed = perf_counter() - start
-
         result = RegressionTestResult(
             script=script,
             passed=completed.returncode == 0,
@@ -147,14 +133,11 @@ def run_regression_suite(
             stderr_tail=tail_text(completed.stderr),
         )
         results.append(result)
-
         if stop_on_failure and not result.passed:
             break
-
     elapsed_total = perf_counter() - suite_start
     passed_tests = sum(1 for result in results if result.passed)
     failed_tests = len(results) - passed_tests
-
     return RegressionSuiteResult(
         suite_name="execution_safety_regression_suite",
         passed=failed_tests == 0 and len(results) == len(scripts),
@@ -164,21 +147,14 @@ def run_regression_suite(
         elapsed_seconds=elapsed_total,
         results=tuple(results),
     )
-
-
 def tail_text(value: str, *, max_lines: int = 8) -> str:
     """Return a short tail of subprocess output."""
-
     lines = value.splitlines()
     if not lines:
         return ""
-
     return "\n".join(lines[-max_lines:])
-
-
 def print_text_summary(result: RegressionSuiteResult) -> None:
     """Print a readable regression summary."""
-
     print("Execution Safety Regression Suite")
     print("=" * 80)
     print(f"Suite:         {result.suite_name}")
@@ -188,7 +164,6 @@ def print_text_summary(result: RegressionSuiteResult) -> None:
     print(f"Failed tests:  {result.failed_tests}")
     print(f"Elapsed sec:   {result.elapsed_seconds:.3f}")
     print("-" * 80)
-
     for test_result in result.results:
         status = "PASS" if test_result.passed else "FAIL"
         print(f"[{status}] {test_result.script} ({test_result.elapsed_seconds:.3f}s)")
@@ -199,9 +174,7 @@ def print_text_summary(result: RegressionSuiteResult) -> None:
             if test_result.stderr_tail:
                 print("STDERR tail:")
                 print(test_result.stderr_tail)
-
     print("-" * 80)
-
     if result.passed:
         print("[PASS] Execution safety regression suite passed.")
         print("[PASS] No private execution endpoint call was introduced.")
@@ -209,8 +182,6 @@ def print_text_summary(result: RegressionSuiteResult) -> None:
     else:
         print("[FAIL] Execution safety regression suite failed.")
         print("[FAIL] Review the failing test output above.")
-
-
 def run_cli(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(
         description="Run the full execution safety regression suite."
@@ -225,29 +196,12 @@ def run_cli(argv: list[str] | None = None) -> int:
         action="store_true",
         help="Stop the suite when the first failure is encountered.",
     )
-
     args = parser.parse_args(argv)
     result = run_regression_suite(stop_on_failure=args.stop_on_failure)
-
     if args.json:
         print(json.dumps(result.safe_report(), indent=2, sort_keys=True))
     else:
         print_text_summary(result)
-
     return 0 if result.passed else 1
-
-
 if __name__ == "__main__":
     raise SystemExit(run_cli())
-
-
-
-
-
-
-
-
-
-
-
-

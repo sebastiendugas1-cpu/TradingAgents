@@ -814,3 +814,17 @@ Expected result:
 - Execution Safety Regression Suite increases from 25 tests to 26 tests.
 - All tests remain passing.
 - Safety guards continue to confirm that no private execution endpoint call or account-changing permission requirement was introduced.
+
+### Slice 22A decision - make safety validation independent from manual PYTHONPATH setup
+
+Decision:
+- Make the execution safety regression runner and its validation test insert the repository root into `sys.path`.
+
+Reason:
+- Slice 21D initially failed validation when `PYTHONPATH` was not set, even though the code changes were valid.
+- Safety validation should be reliable from the documented repo-root workflow without depending on temporary shell state.
+
+Expected result:
+- Master safety suite remains at 26 tests.
+- All 26 tests remain passing.
+- Safety guards continue to confirm that no private execution endpoint call or account-changing permission requirement was introduced.

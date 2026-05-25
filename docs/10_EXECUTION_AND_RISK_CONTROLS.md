@@ -626,3 +626,9 @@ The integration:
 The private request signer transport integration test is now part of the master execution safety regression suite.
 
 This slice is a suite-registration-only change. It does not activate private execution, does not create signatures, does not read secrets, does not generate nonces, and does not introduce private endpoint or network calls.
+
+### Slice 22A control - repo-root import safety for execution validation
+
+The execution safety regression runner and its runner validation test now add the repository root to `sys.path` when run directly. This keeps validation stable when subprocesses are launched without `PYTHONPATH` preconfigured.
+
+This slice is workflow hardening only. It does not activate private execution, does not create signatures, does not read secrets, does not generate nonces, and does not introduce private endpoint or network calls.
