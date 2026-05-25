@@ -52,6 +52,7 @@ DEFAULT_SAFETY_TESTS = (
     "scripts/test_kraken_private_client_transport_integration.py",
     "scripts/test_kraken_private_request_signer_shell.py",
     "scripts/test_kraken_private_signer_transport_integration.py",
+    "scripts/test_kraken_private_signing_material_model.py",
 )
 @dataclass(frozen=True)
 class RegressionTestResult:

@@ -1,4 +1,4 @@
-﻿# Execution and Risk Controls
+# Execution and Risk Controls
 
 ## Purpose
 
@@ -632,3 +632,9 @@ This slice is a suite-registration-only change. It does not activate private exe
 The execution safety regression runner and its runner validation test now add the repository root to `sys.path` when run directly. This keeps validation stable when subprocesses are launched without `PYTHONPATH` preconfigured.
 
 This slice is workflow hardening only. It does not activate private execution, does not create signatures, does not read secrets, does not generate nonces, and does not introduce private endpoint or network calls.
+
+### Slice 22B control - disabled private signing material model
+
+A disabled, data-only Kraken private signing material model now exists for future review plumbing. It records that signing-related capabilities remain unavailable and blocked.
+
+This slice does not activate private execution, does not read API secrets, does not read environment secrets, does not generate nonces, does not generate signatures, and does not introduce private endpoint or network calls.

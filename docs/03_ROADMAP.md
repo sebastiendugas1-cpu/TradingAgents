@@ -1,4 +1,4 @@
-﻿# Roadmap
+# Roadmap
 
 ## Slice-Based Development Rule
 
@@ -1299,6 +1299,26 @@ Validated target:
 - Make the regression runner validation test repo-root import safe.
 - Reduce dependence on manually setting `PYTHONPATH` before validation.
 - Preserve the current 26-test master safety suite.
+
+Safety posture:
+- No real order placement.
+- No real order cancellation.
+- No private endpoint calls.
+- No network calls in private execution code.
+- No API secret usage.
+- No environment secret reading.
+- No nonce generation.
+- No HMAC/hashlib/base64 signing implementation.
+- No live trading.
+- No private account-changing permission requirement.
+
+### Slice 22B - Add Disabled Private Request Signing Material Model
+
+Validated target:
+- Add a disabled, data-only Kraken private signing material model.
+- Add standalone validation for the disabled model.
+- Register the standalone validation in the master execution safety regression suite.
+- Increase expected master safety suite coverage from 26 tests to 27 tests.
 
 Safety posture:
 - No real order placement.

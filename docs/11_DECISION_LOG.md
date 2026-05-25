@@ -1,4 +1,4 @@
-﻿# Decision Log
+# Decision Log
 
 This file records major project decisions.
 
@@ -828,3 +828,17 @@ Expected result:
 - Master safety suite remains at 26 tests.
 - All 26 tests remain passing.
 - Safety guards continue to confirm that no private execution endpoint call or account-changing permission requirement was introduced.
+
+### Slice 22B decision - represent future signing material as disabled data only
+
+Decision:
+- Add an inert signing material model before any real signing implementation.
+
+Reason:
+- Future private signing work needs explicit reviewable structure.
+- The first step should be data-only and disabled so safety tests can lock down the non-executable posture before any sensitive behavior exists.
+
+Expected result:
+- Master safety suite increases from 26 tests to 27 tests.
+- All 27 tests remain passing.
+- Safety guards continue to confirm that no secret reading, nonce generation, signing implementation, private endpoint call, or account-changing permission requirement was introduced.
