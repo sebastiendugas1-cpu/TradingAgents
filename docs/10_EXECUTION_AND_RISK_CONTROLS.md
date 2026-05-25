@@ -638,3 +638,9 @@ This slice is workflow hardening only. It does not activate private execution, d
 A disabled, data-only Kraken private signing material model now exists for future review plumbing. It records that signing-related capabilities remain unavailable and blocked.
 
 This slice does not activate private execution, does not read API secrets, does not read environment secrets, does not generate nonces, does not generate signatures, and does not introduce private endpoint or network calls.
+
+### Slice 22C control - disabled signing material wired into signer shell review
+
+The disabled signing-material model is now attached to the signer shell review surface through a data-only review integration layer.
+
+This slice does not activate private execution, does not read API secrets, does not read environment secrets, does not generate nonces, does not generate signatures, and does not introduce private endpoint or network calls.

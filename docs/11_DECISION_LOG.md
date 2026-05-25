@@ -842,3 +842,17 @@ Expected result:
 - Master safety suite increases from 26 tests to 27 tests.
 - All 27 tests remain passing.
 - Safety guards continue to confirm that no secret reading, nonce generation, signing implementation, private endpoint call, or account-changing permission requirement was introduced.
+
+### Slice 22C decision - wire disabled signing material into review flow before real signing
+
+Decision:
+- Wire the disabled signing-material model into a signer-shell review integration layer.
+
+Reason:
+- Signing-related state should become visible in review output before any sensitive behavior exists.
+- This preserves auditability and allows tests to lock the disabled posture before future implementation slices.
+
+Expected result:
+- Master safety suite increases from 27 tests to 28 tests.
+- All 28 tests remain passing.
+- Safety guards continue to confirm that no secret reading, nonce generation, signing implementation, private endpoint call, or account-changing permission requirement was introduced.

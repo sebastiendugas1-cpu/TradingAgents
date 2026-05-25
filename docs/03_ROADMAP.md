@@ -1331,3 +1331,24 @@ Safety posture:
 - No HMAC/hashlib/base64 signing implementation.
 - No live trading.
 - No private account-changing permission requirement.
+
+### Slice 22C - Wire Disabled Signing Material Model into Signer Shell Review
+
+Validated target:
+- Add a disabled signing-material review integration layer.
+- Attach the disabled signing-material payload to the private request signer shell review surface.
+- Add standalone validation for the disabled review integration.
+- Register the standalone validation in the master execution safety regression suite.
+- Increase expected master safety suite coverage from 27 tests to 28 tests.
+
+Safety posture:
+- No real order placement.
+- No real order cancellation.
+- No private endpoint calls.
+- No network calls in private execution code.
+- No API secret usage.
+- No environment secret reading.
+- No nonce generation.
+- No HMAC/hashlib/base64 signing implementation.
+- No live trading.
+- No private account-changing permission requirement.
