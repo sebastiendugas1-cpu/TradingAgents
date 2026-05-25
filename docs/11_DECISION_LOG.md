@@ -884,3 +884,18 @@ Expected result:
 - Master safety suite remains at 29 tests.
 - All 29 tests remain passing.
 - Safety guards continue to confirm that no secret reading, nonce generation, signing implementation, private endpoint call, or account-changing permission requirement was introduced.
+
+### Slice 22F decision - preserve TradingAgents / crypto-trading-agent role split
+
+Decision:
+- Record the current architecture split before continuing deeper into signing-related work.
+
+Reason:
+- TradingAgents is currently being used to build a safety-gated review chain.
+- The broader crypto-trading-agent repo remains the intended Kraken safety/execution/reconciliation shell.
+- A clear checkpoint reduces project drift and prevents confusing disabled review plumbing with live execution capability.
+
+Expected result:
+- Master safety suite remains at 29 tests.
+- All 29 tests remain passing.
+- Safety guards continue to confirm that no secret reading, nonce generation, signing implementation, private endpoint call, or account-changing permission requirement was introduced.

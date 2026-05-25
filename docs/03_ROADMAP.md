@@ -1392,3 +1392,24 @@ Safety posture:
 - No HMAC/hashlib/base64 signing implementation.
 - No live trading.
 - No private account-changing permission requirement.
+
+### Slice 22F - Update High-Level Project Source-of-Truth Architecture Checkpoint
+
+Validated target:
+- Add a high-level architecture checkpoint after Slice 22E.
+- Clarify the role split between TradingAgents and crypto-trading-agent.
+- Record the latest validated TradingAgents commit and safety-suite state.
+- Preserve current disabled/non-executable private execution posture.
+- Keep master safety suite coverage at 29 tests.
+
+Safety posture:
+- No real order placement.
+- No real order cancellation.
+- No private endpoint calls.
+- No network calls in private execution code.
+- No API secret usage.
+- No environment secret reading.
+- No nonce generation.
+- No HMAC/hashlib/base64 signing implementation.
+- No live trading.
+- No private account-changing permission requirement.

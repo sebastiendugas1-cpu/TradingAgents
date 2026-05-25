@@ -656,3 +656,9 @@ This slice does not activate private execution, does not read API secrets, does 
 The execution safety state is now explicitly recorded after Slice 22D. The project remains in disabled/private-execution-blocked mode with data-only signing review plumbing.
 
 This slice is documentation-only. It does not activate private execution, does not read API secrets, does not read environment secrets, does not generate nonces, does not generate signatures, and does not introduce private endpoint or network calls.
+
+### Slice 22F control - high-level architecture checkpoint
+
+The high-level architecture checkpoint now explicitly records the role split between TradingAgents and crypto-trading-agent, plus the current disabled Kraken private execution review-chain state.
+
+This slice is documentation-only. It does not activate private execution, does not read API secrets, does not read environment secrets, does not generate nonces, does not generate signatures, and does not introduce private endpoint or network calls.
