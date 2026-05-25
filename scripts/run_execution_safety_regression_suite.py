@@ -46,6 +46,7 @@ DEFAULT_SAFETY_TESTS = (
     "scripts/test_kraken_private_order_request_translator.py",
     "scripts/test_kraken_order_translation_adapter_integration.py",
     "scripts/test_kraken_order_payload_review_cli.py",
+    "scripts/test_kraken_order_payload_review_cli_signing_material.py",
     "scripts/test_kraken_private_client_shell.py",
     "scripts/test_kraken_payload_review_private_client_integration.py",
     "scripts/test_kraken_private_transport_shell.py",

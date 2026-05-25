@@ -1352,3 +1352,23 @@ Safety posture:
 - No HMAC/hashlib/base64 signing implementation.
 - No live trading.
 - No private account-changing permission requirement.
+
+### Slice 22D - Add Signing Material Review Integration to Payload Review CLI
+
+Validated target:
+- Expose the disabled signing-material review payload at the payload review CLI layer.
+- Add standalone validation for the CLI-level disabled signing-material review helper.
+- Register the standalone validation in the master execution safety regression suite.
+- Increase expected master safety suite coverage from 28 tests to 29 tests.
+
+Safety posture:
+- No real order placement.
+- No real order cancellation.
+- No private endpoint calls.
+- No network calls in private execution code.
+- No API secret usage.
+- No environment secret reading.
+- No nonce generation.
+- No HMAC/hashlib/base64 signing implementation.
+- No live trading.
+- No private account-changing permission requirement.

@@ -46,6 +46,7 @@ def test_default_safety_tests_include_private_request_signer_shell_test() -> Non
     "scripts/test_kraken_private_signer_transport_integration.py"
     "scripts/test_kraken_private_signing_material_model.py"
     "scripts/test_kraken_private_signing_material_review_integration.py"
+    "scripts/test_kraken_order_payload_review_cli_signing_material.py"
     print("[OK] default safety tests include private request signer shell test")
 def test_regression_suite_runs_subset_successfully() -> None:
     result = run_regression_suite(

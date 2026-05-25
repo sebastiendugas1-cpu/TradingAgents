@@ -644,3 +644,9 @@ This slice does not activate private execution, does not read API secrets, does 
 The disabled signing-material model is now attached to the signer shell review surface through a data-only review integration layer.
 
 This slice does not activate private execution, does not read API secrets, does not read environment secrets, does not generate nonces, does not generate signatures, and does not introduce private endpoint or network calls.
+
+### Slice 22D control - disabled signing material exposed at payload review CLI layer
+
+The payload review CLI now has a helper that attaches the disabled signing-material review payload to mapping-based review output. This keeps signing state visible to CLI review surfaces before any real signing implementation exists.
+
+This slice does not activate private execution, does not read API secrets, does not read environment secrets, does not generate nonces, does not generate signatures, and does not introduce private endpoint or network calls.

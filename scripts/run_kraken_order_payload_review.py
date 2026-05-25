@@ -1,4 +1,4 @@
-﻿"""
+"""
 Slice 19E Kraken order payload review CLI.
 
 This CLI builds a manual command candidate, translates it into a Kraken-style
@@ -15,6 +15,10 @@ It does not:
 """
 
 from __future__ import annotations
+
+from tradingagents.execution.kraken_private_signing_material_review_integration import (
+    build_disabled_signer_shell_review_with_signing_material,
+)
 
 import argparse
 import json
@@ -155,6 +159,30 @@ def run_cli(argv: list[str] | None = None) -> int:
 
     return 0
 
+
+
+def _attach_disabled_signing_material_review(payload):
+    """Attach disabled signing-material review data to mapping-based CLI output."""
+
+    if not isinstance(payload, dict):
+        return payload
+
+    if "signing_material_review" in payload:
+        return payload
+
+    updated_payload = dict(payload)
+    signer_review = updated_payload.get("signer_shell_review")
+    if signer_review is None:
+        signer_review = updated_payload.get("private_signer_review")
+    if signer_review is None:
+        signer_review = updated_payload.get("private_client_review")
+    if signer_review is None:
+        signer_review = {"status": "disabled", "source": "payload_review_cli"}
+
+    updated_payload["signing_material_review"] = dict(
+        build_disabled_signer_shell_review_with_signing_material(signer_review=signer_review)
+    )
+    return updated_payload
 
 if __name__ == "__main__":
     raise SystemExit(run_cli())

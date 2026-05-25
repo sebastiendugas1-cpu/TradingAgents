@@ -856,3 +856,17 @@ Expected result:
 - Master safety suite increases from 27 tests to 28 tests.
 - All 28 tests remain passing.
 - Safety guards continue to confirm that no secret reading, nonce generation, signing implementation, private endpoint call, or account-changing permission requirement was introduced.
+
+### Slice 22D decision - expose disabled signing-material review in CLI review payload
+
+Decision:
+- Add CLI-level disabled signing-material review attachment.
+
+Reason:
+- The user-facing payload review layer should display signing posture before any sensitive implementation is introduced.
+- Keeping this data-only makes future signing work easier to audit and keeps current private execution blocked.
+
+Expected result:
+- Master safety suite increases from 28 tests to 29 tests.
+- All 29 tests remain passing.
+- Safety guards continue to confirm that no secret reading, nonce generation, signing implementation, private endpoint call, or account-changing permission requirement was introduced.
