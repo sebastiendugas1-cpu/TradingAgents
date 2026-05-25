@@ -650,3 +650,9 @@ This slice does not activate private execution, does not read API secrets, does 
 The payload review CLI now has a helper that attaches the disabled signing-material review payload to mapping-based review output. This keeps signing state visible to CLI review surfaces before any real signing implementation exists.
 
 This slice does not activate private execution, does not read API secrets, does not read environment secrets, does not generate nonces, does not generate signatures, and does not introduce private endpoint or network calls.
+
+### Slice 22E control - execution safety checkpoint
+
+The execution safety state is now explicitly recorded after Slice 22D. The project remains in disabled/private-execution-blocked mode with data-only signing review plumbing.
+
+This slice is documentation-only. It does not activate private execution, does not read API secrets, does not read environment secrets, does not generate nonces, does not generate signatures, and does not introduce private endpoint or network calls.

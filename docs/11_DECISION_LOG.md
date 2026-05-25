@@ -870,3 +870,17 @@ Expected result:
 - Master safety suite increases from 28 tests to 29 tests.
 - All 29 tests remain passing.
 - Safety guards continue to confirm that no secret reading, nonce generation, signing implementation, private endpoint call, or account-changing permission requirement was introduced.
+
+### Slice 22E decision - checkpoint execution safety state before further signing work
+
+Decision:
+- Add a documentation checkpoint before continuing deeper into signing architecture.
+
+Reason:
+- The project now has multiple disabled signing review layers.
+- A compact checkpoint reduces drift and makes the current validated state clear before any future technical slice.
+
+Expected result:
+- Master safety suite remains at 29 tests.
+- All 29 tests remain passing.
+- Safety guards continue to confirm that no secret reading, nonce generation, signing implementation, private endpoint call, or account-changing permission requirement was introduced.
