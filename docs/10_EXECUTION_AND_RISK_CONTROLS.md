@@ -604,3 +604,19 @@ The shell:
 The master execution safety regression suite now includes disabled Kraken private request signer shell validation.
 
 This protects the signer boundary and confirms no secret, nonce, signature, network, or private endpoint behavior has been introduced.
+
+## Slice 21C - Private Request Signer Shell to Transport Shell Integration
+
+A disabled integration has been added between:
+- Kraken private request signer shell
+- Kraken private transport shell
+
+The integration:
+- routes preview payloads only
+- returns blocked safe reports
+- confirms no secret material is loaded
+- confirms no nonce is generated
+- confirms no signature is generated
+- confirms no request is signed
+- confirms no request is sent
+- confirms no network/private endpoint call is made

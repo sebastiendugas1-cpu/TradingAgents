@@ -789,3 +789,14 @@ Slice 21A created the signer boundary. That boundary must be protected before fu
 
 Result:
 The project now verifies the disabled private request signer shell during full safety regression.
+
+## Slice 21C Decision - Connect Disabled Signer Boundary to Disabled Transport Boundary
+
+Decision:
+Add a disabled integration between the private request signer shell and private transport shell.
+
+Reason:
+Before future signing or private request work, the system needs a tested boundary proving the signer route can connect to transport while remaining blocked and non-executable.
+
+Result:
+The project now has a tested signer-to-transport integration with no secret material, no nonce generation, no signature generation, no network calls, no private endpoint calls, and no live trading.

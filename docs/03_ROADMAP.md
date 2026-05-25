@@ -1245,3 +1245,30 @@ Safety:
 - No order placement.
 - No order cancellation.
 - No private account-changing permissions required.
+
+## Slice 21C - Private Request Signer Shell to Transport Shell Integration
+
+Status: Implemented pending validation.
+
+Goal:
+Connect the disabled Kraken private request signer shell boundary to the disabled Kraken private transport shell boundary.
+
+Scope:
+- Create 	radingagents/execution/kraken_private_signer_transport_integration.py.
+- Create scripts/test_kraken_private_signer_transport_integration.py.
+- Route a safe unsigned preview through the disabled signer shell and disabled transport shell.
+- Preserve blocked, non-executable behavior.
+- Validate that no secret, nonce, signature, network, or private endpoint behavior exists.
+
+Safety:
+- No API secret usage.
+- No environment secret reading.
+- No nonce generation.
+- No signature generation.
+- No HMAC or digest signing implementation.
+- No network call.
+- No private execution endpoint call.
+- No live trading.
+- No order placement.
+- No order cancellation.
+- No private account-changing permissions required.
